@@ -1155,7 +1155,8 @@
     const summary = (await Storage.getMonthSummary(ymStr)).slice().sort((a,b)=> (a.date||'').localeCompare(b.date||''));
     const routineCounts = {};
     routineItems.forEach(item=>{ routineCounts[item.id] = 0; });
-    const daysWithData = summary.length;
+    // 그냥 구경만 하고 지나간 날에도 빈 기록이 저장되므로, 실제 내용이 있는 날만 센다.
+    const daysWithData = summary.filter(d=> dayHasConstant(d) || dayHasVariable(d)).length;
     const varRows = [];
     summary.forEach(d=>{
       const rc = (d.constant && d.constant.routineChecks) || {};
@@ -1237,7 +1238,7 @@
     let daysWithData = 0;
     const varLines = [];
     summary.forEach(d=>{
-      daysWithData++;
+      if(dayHasConstant(d) || dayHasVariable(d)) daysWithData++;
       const rc = (d.constant && d.constant.routineChecks) || {};
       routineItems.forEach(item=>{ if(rc[item.id]) routineCounts[item.id]++; });
       (d.variables || []).forEach(v=>{
