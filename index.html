@@ -713,6 +713,18 @@
     saveTimer = setTimeout(saveNow, 650);
   }
 
+  // 모바일에서 입력 직후 앱을 끄거나 전환하면 650ms 저장 타이머가 실행되기 전에
+  // 페이지가 정지/종료될 수 있어, 화면이 숨겨지는 순간 즉시 저장을 강제한다.
+  function flushSaveImmediately(){
+    if(typeof flushActiveEntryForm === 'function') flushActiveEntryForm();
+    clearTimeout(saveTimer);
+    Storage.saveDay(currentDate, dayData);
+  }
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.visibilityState === 'hidden') flushSaveImmediately();
+  });
+  window.addEventListener('pagehide', flushSaveImmediately);
+
   function bindConstField(id, path){
     const el = document.getElementById(id);
     el.addEventListener('input', ()=>{
