@@ -1014,7 +1014,7 @@
   async function loadDate(date){
     flushActiveEntryForm();
     clearTimeout(saveTimer);
-    if(dayData && currentDate){
+    if(dayData && currentDate && date !== currentDate){
       try{ await Storage.saveDay(currentDate, dayData); }catch(e){}
     }
     currentDate = date;
