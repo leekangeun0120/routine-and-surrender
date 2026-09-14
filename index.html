@@ -403,6 +403,14 @@
     </div>
   </section>
 
+  <section class="calendar">
+    <div class="cal-head">
+      <h2>이번 달 기록 PDF로 저장</h2>
+      <button class="btn btn-var btn-tiny" id="pdfBtn">PDF 만들기</button>
+    </div>
+    <div class="retro-body muted">지금 보고 있는 달의 상수 실천 현황과 변수 기록을 정리해서 인쇄창을 열어드려요. 그 창에서 인쇄 대상을 "PDF로 저장"으로 바꾸면 파일로 남길 수 있어요.</div>
+  </section>
+
   <section class="calendar retro" id="retroSection" hidden>
     <div class="cal-head">
       <h2>이번 달 회고</h2>
@@ -1117,6 +1125,86 @@
     calMonthIdx++; if(calMonthIdx > 11){ calMonthIdx = 0; calYear++; }
     renderCalendar();
   });
+
+  // ---- monthly PDF export (browser print, no server / AI needed) ----
+  const ACCEPT_LABELS_PDF = {accepted:'받아들임', resisted:'저항함', unsure:'아직 모르겠음'};
+  function escapeHtml(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c=>(
+      {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+    ));
+  }
+  async function exportMonthPdf(){
+    const ymStr = calYear + '-' + String(calMonthIdx+1).padStart(2,'0');
+    const monthLabel = calYear + '년 ' + (calMonthIdx+1) + '월';
+    const summary = (await Storage.getMonthSummary(ymStr)).slice().sort((a,b)=> (a.date||'').localeCompare(b.date||''));
+    const routineCounts = {};
+    routineItems.forEach(item=>{ routineCounts[item.id] = 0; });
+    const daysWithData = summary.length;
+    const varRows = [];
+    summary.forEach(d=>{
+      const rc = (d.constant && d.constant.routineChecks) || {};
+      routineItems.forEach(item=>{ if(rc[item.id]) routineCounts[item.id]++; });
+      (d.variables || []).forEach(v=>{
+        if(isEntryBlank(v)) return;
+        varRows.push(Object.assign({date:d.date}, v));
+      });
+    });
+    const routineRowsHtml = routineItems.length
+      ? routineItems.map(item=>
+          '<tr><td>'+escapeHtml(item.label)+'</td><td>'+routineCounts[item.id]+' / '+daysWithData+'일</td></tr>'
+        ).join('')
+      : '<tr><td colspan="2">등록된 상수 항목이 없어요</td></tr>';
+    const varRowsHtml = varRows.length
+      ? varRows.map(v=>{
+          const rows = [];
+          if(v.emotion) rows.push('<div><b>감정</b> '+escapeHtml(v.emotion)+'</div>');
+          if(v.action) rows.push('<div><b>행동</b> '+escapeHtml(v.action)+'</div>');
+          if(v.result) rows.push('<div><b>결과</b> '+escapeHtml(v.result)+'</div>');
+          if(v.insight) rows.push('<div><b>깨달은 점</b> '+escapeHtml(v.insight)+'</div>');
+          if(v.acceptance && ACCEPT_LABELS_PDF[v.acceptance]) rows.push('<div><b>반응</b> '+ACCEPT_LABELS_PDF[v.acceptance]+'</div>');
+          return (
+            '<div class="pdf-entry">'+
+            '<div class="pdf-entry-date">'+escapeHtml(v.date)+'</div>'+
+            '<div class="pdf-entry-situation">'+escapeHtml(v.situation || '(상황 미입력)')+'</div>'+
+            '<div class="pdf-entry-grid">'+rows.join('')+'</div>'+
+            '</div>'
+          );
+        }).join('')
+      : '<p>이 달엔 변수 기록이 없어요.</p>';
+
+    const html =
+      '<!doctype html><html><head><meta charset="utf-8"><title>'+escapeHtml(monthLabel)+' 기록</title>'+
+      '<style>'+
+      'body{font-family:"Apple SD Gothic Neo","Malgun Gothic",sans-serif; color:#222; padding:28px; max-width:720px; margin:0 auto;}'+
+      'h1{font-size:22px; border-bottom:2px solid #333; padding-bottom:10px;}'+
+      'h2{font-size:16px; margin-top:26px;}'+
+      'table{width:100%; border-collapse:collapse; margin-top:8px;}'+
+      'td{padding:6px 8px; border-bottom:1px solid #ddd; font-size:13px;}'+
+      '.pdf-entry{border:1px solid #ddd; border-radius:8px; padding:10px 12px; margin-bottom:10px; page-break-inside:avoid;}'+
+      '.pdf-entry-date{font-size:11px; color:#888;}'+
+      '.pdf-entry-situation{font-weight:700; margin:4px 0 6px;}'+
+      '.pdf-entry-grid div{font-size:13px; margin:2px 0;}'+
+      '@media print{ body{padding:0;} }'+
+      '</style></head><body>'+
+      '<h1>'+escapeHtml(monthLabel)+' 상수와 변수 기록</h1>'+
+      '<h2>상수 실천 현황 (기록한 '+daysWithData+'일 중)</h2>'+
+      '<table>'+routineRowsHtml+'</table>'+
+      '<h2>변수 기록 ('+varRows.length+'건)</h2>'+
+      varRowsHtml+
+      '</body></html>';
+
+    const w = window.open('', '_blank');
+    if(!w){
+      setBackupStatus('팝업이 차단됐어요. 브라우저의 팝업 차단을 허용해주세요.');
+      return;
+    }
+    w.document.open();
+    w.document.write(html);
+    w.document.close();
+    w.focus();
+    setTimeout(()=>{ try{ w.print(); }catch(e){} }, 300);
+  }
+  document.getElementById('pdfBtn').addEventListener('click', exportMonthPdf);
 
   // ---- monthly retrospective ----
   const retroSection = document.getElementById('retroSection');
