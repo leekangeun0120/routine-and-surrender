@@ -406,10 +406,10 @@
 
   <section class="calendar">
     <div class="cal-head">
-      <h2>이번 달 기록 PDF로 저장</h2>
+      <h2>보고 있는 달 기록 PDF로 저장</h2>
       <button class="btn btn-var btn-tiny" id="pdfBtn">PDF 만들기</button>
     </div>
-    <div class="retro-body muted">지금 보고 있는 달의 상수 실천 현황과 변수 기록을 정리해서 인쇄창을 열어드려요. 그 창에서 인쇄 대상을 "PDF로 저장"으로 바꾸면 파일로 남길 수 있어요.</div>
+    <div class="retro-body muted">위 달력에서 지금 보고 있는 달의 상수 실천 현황과 변수 기록을 정리해서 인쇄창을 열어드려요. 그 창에서 인쇄 대상을 "PDF로 저장"으로 바꾸면 파일로 남길 수 있어요. (달력을 다른 달로 넘기면 그 달 기준으로 만들어져요)</div>
   </section>
 
   <section class="calendar retro" id="retroSection" hidden>
@@ -676,6 +676,7 @@
   // ---- app state ----
   let currentDate = toDateStr(new Date());
   let dayData = emptyDay(currentDate);
+  let hasLoadedData = false; // true once dayData actually reflects saved storage (see loadDate)
   let saveTimer = null;
   const saveStatusEl = document.getElementById('saveStatus');
 
@@ -1023,12 +1024,13 @@
   async function loadDate(date){
     flushActiveEntryForm();
     clearTimeout(saveTimer);
-    if(dayData && currentDate && date !== currentDate){
+    if(hasLoadedData){
       try{ await Storage.saveDay(currentDate, dayData); }catch(e){}
     }
     currentDate = date;
     datePicker.value = date;
     dayData = await Storage.getDay(date);
+    hasLoadedData = true;
     if(!dayData.constant) dayData.constant = emptyDay(date).constant;
     if(!dayData.constant.routineChecks) dayData.constant.routineChecks = {};
     if(!dayData.constant.goals) dayData.constant.goals = {money:'',work:'',relation:'',health:'',happiness:''};
