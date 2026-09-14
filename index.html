@@ -103,7 +103,7 @@
     font-family:"Gowun Batang",serif; font-weight:700; font-size:2rem; color:var(--ink);
     letter-spacing:0.01em;
   }
-  .formula-main .fx-var{border-bottom:3px dashed var(--constant-strong); padding:0 4px 3px;}
+  .formula-main .fx-var{border-bottom:3px dashed var(--variable-strong); padding:0 4px 3px;}
   .formula-main .fx-const{border-bottom:3px solid var(--constant-strong); padding:0 4px 3px;}
   .formula-example{
     margin-top:14px; color:var(--muted); font-size:0.92rem; font-family:"Gowun Dodum",sans-serif;
@@ -112,8 +112,8 @@
     display:flex; justify-content:center; gap:22px; margin-top:16px; font-size:0.8rem; color:var(--muted);
   }
   .formula-legend span{display:inline-flex; align-items:center; gap:6px;}
-  .formula-legend i{display:inline-block; width:18px; height:0; border-top:3px dashed var(--constant-strong);}
-  .formula-legend i.solid{border-top-style:solid;}
+  .formula-legend i{display:inline-block; width:18px; height:0; border-top:3px dashed var(--variable-strong);}
+  .formula-legend i.solid{border-top-style:solid; border-top-color:var(--constant-strong);}
 
   /* quotes */
   details.quotes{
@@ -369,6 +369,7 @@
         <button id="nextDay" title="다음날" aria-label="다음날">›</button>
         <button class="today-btn" id="gotoToday">오늘로</button>
         <button class="today-btn" id="themeToggle">라이트/다크</button>
+        <button class="today-btn btn-danger" id="resetDayBtn" title="이 날 기록 초기화">이 날 초기화</button>
       </div>
       <div class="save-status" id="saveStatus">&nbsp;</div>
     </div>
@@ -486,7 +487,7 @@
       </div>
 
       <div class="field">
-        <label for="f-scene">내일의 키 신 (상상해보는 장면)</label>
+        <label for="f-scene">내일의 Key Scene (상상해보는 장면)</label>
         <textarea id="f-scene" rows="2" placeholder=""></textarea>
       </div>
 
@@ -1051,6 +1052,19 @@
   });
   datePicker.addEventListener('change', ()=>{
     if(datePicker.value) loadDate(datePicker.value);
+  });
+
+  document.getElementById('resetDayBtn').addEventListener('click', async ()=>{
+    const ok = confirm(currentDate + ' 기록을 전부 지울까요?\n되돌릴 수 없어요.');
+    if(!ok) return;
+    if(typeof activeEntryForm !== 'undefined') activeEntryForm = null;
+    formHolder.innerHTML = '';
+    clearTimeout(saveTimer);
+    dayData = emptyDay(currentDate);
+    await Storage.saveDay(currentDate, dayData);
+    renderAll();
+    setSaveStatus('초기화됨');
+    if(typeof renderCalendar === 'function') renderCalendar();
   });
 
   // ---- calendar ----
