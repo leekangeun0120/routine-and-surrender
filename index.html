@@ -1,0 +1,1300 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>상수와 변수</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAFkUlEQVR4nO3dO44TQRSFYc8ISyRoVsEKqM2QkyBC1kGISMjZTLECVoFIkAhADiyZHj+q3fU499T/xVZ3Bf/cqbHbNQ87EX9+/fw7eg243/7V08NOwLBFELC3/aDAu96UiOe07xh38xsRMXrG3ezihIwRYVe/KCFjZNiPNS9GzBjdTJWfDkKGyrTePKGJGbXUaGlT0MSM2rY2ddeIJ2SobkFWT2hiRi/3tLYqaGJGb2ubKw6amDHKmvaqvg8NjFYUNNMZo5U2eDNoYoaKkhavBk3MUHOrSfbQsHIxaKYzVF1r82zQxAx1lxplywErz4JmOiOKc60yoWHlv6CZzohm2SwTGlYIGp5Bs91AVKftMqFhhaDhFzTbDUR3bJgJDSsEDSsEDSsP7J/hhAkNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKwQNKy92E/rx7lPxa19//bhTk758Ln5tfv9hN5MpjjFYE7Bi4GsCnj1w26BrRjwi7poRzxS3VdA9Im4Zd4+I3eO2+aNwZMw17j8yZoX71xJ+Qo8Oeeu0VgwpB57WoSe0Ysxr1qUYs/K6bCe0asil0zpSMDnYtA43oSPFfG69kWKOuN5QQUeLebnuaHEcRVp3mC1H1JiP3r55uYsuB9h+hJjQxKwhBZjU8kETs5YkHrV00MSsKQlHLR00YBM001lbEp3SkkETcwxJMGrJoAGboJnOsSSxKS0VNDHHlISinvI7hSWPeUb44br2yV0Siqyn6YIufVb59HVKcZd+/JxPXjdT3DLPcrSOpsZXpK6tsfWzGjWeo0iNw1Z41kNqD63+ZdZRRxrUCiULBNeafdC1I+wdde0Is3nUj87bjVbxLa/barvRKr7c6LoKe3WJoFtoPUlbX7/1JM2mk9o2aMzJMuhe+9xW9+k1PbPhlB4etNJ7vLN+tcppHz08aKAmu6AVj79d49v3313vl822HXZBY24EDSsEDSsEDSsEDSsEDSt2QfNBTawPQmqzCxpzGx40H4R4yYM/qBkedORtR6v79NoGJLPthm3QmJdt0K2ndOvrt56eyXA6ywTdah/dKrrldVs9UNQqutTouqP3zzJBt1Q76t5vC9aOL5lO5mmCrhnhqPe4a0WYzGOWOmhG+R/Ol66rx7dX7vm1njqErLDdmPIosNM4I55tdxonZ9s9N13QEaItNcMWIvQemk8NY8oi2w25oA+IOpYsFLNk0IBd0EzpGLLYdJYN+oCotWXBmKWDBuyCZkpryqLTWT7oA6LWkoVjDhH0AVFryOIxhwnaIeoIMTisP0zQkaM+rjtKFEuR1h0q6IhRL9cbKY6I65V6fNTp4aKSHzzlh4tysJDDTugI07p0XarRZNF12U9otWm95QdMYVrnwCFbTGilab31/qNjygYxW03oKF/nKjXT16Zqsg26VdwjfhPUjDsbRjxd0FsCH72V2Rp4Ng94acqg4cvmj0LggKBhhaBhhaBhhaBhhaBhhaBhhaBhhaBhhaBhhaBhhaBhhaBhhaBhhaBhhaBhhaBhhaBhhaBhhaBh5XH/6ulh9CKAGg4tM6FhhaBhhaDhFzT7aER3bJgJDSsEDc+g2XYgqtN2mdCwQtDwDZptB6JZNsuEhpVnQTOlEcW5VpnQsHI2aKY01F1q9OKEJmqoutYmWw5YuRo0UxpqbjV5c0ITNVSUtFi05SBqjFbaIHtoWCkOmimNUda0t2pCEzV6W9vc6i0HUaOXe1rbdCYH//geLWwZmpv+KGRao7atTW1+l4OoUUuNlqoeA8YWBKOHYtX3oZnWGN1Ms4MamdYYMfyanzxK2Oj5W7zrUbrEPad9xyObh50NTdze9oPOHZc57JzAY9uLHJz/DwVxL1kaGA6aAAAAAElFTkSuQmCC">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAGNElEQVR4nO3dO44bRxSF4R5BBJwIWoVW4NqMcieGQ61DoeHEuTdTXoFWISgxoEDGCKJAUXx0N+tx7j3/Fw+GReCcutXTw+bTIujzp49fZq8B7R1evX5axExfEGH3dphciikvTuihUoahL0jwoVaE7i9E6KFchm6/nOAjQhFe9PilhB9RMtW0VQQf0aZBswlA+DFKy6w1KQDhx2itMvfQKCH4iH4k2j0BCD9UPJLFXQUg/FCzN5ObC0D4oWpPNjcVgPBD3daMri4A4UcUW7La5U4wEMWqArD7I5q1mb1bAMKPqNZk92YBCD+iu5dhrgFg7WoB2P2Rxa0sXywA4Uc21zLNEQjWfioAuz+yupRtJgCsUQBY+6EAHH+Q3XnGmQCw9r0A7P5wcZp1JgCsUQBY+1oAjj9wc8w8EwDWKACsUQBYowCw9sQFMJwxAWCNAsAaBYA1CgBrFADWKACsUQBYowCwRgFgjQLAGgWANQoAaxQA1igArFEAWKMAsEYBYI0CwBoFgDUKAGsUANYoAKy9nL0ABR9+e7/6Z9/8/W5RV/76c/XP1t//WJzZPRdoS9gjlGJL2NeqRqWwKECP0M8sQ4/Qu5YhdQFGBn9EEUYG36UIKQswM/g9ijAz+NmLkKoASsFvUQSl4GctQpo/gyqHf8/6lMMfYX1WBVAP/9Z1RglXCbLOtEegKMFfeySKHKga9EgUdgJEDv+l9UcOf+T1hyxA9PCfv4+o4TkX8X2EOwJlCf/R219/WbKpgY5DoSYA4Y+hBJoEYQpA+GMpQUoQpgCAbQHY/WMqAaaAfAEIf2xFvATSBSD8ORThEkgXALAtALt/LkV0CsgWALC9Ezxr97/1P/uPrGnW3d5bd2Rn7chV7C6x/VMh1n5Q5fTnlI9nawN2+nNF9HhiOQFGhavFRxXXrHXU7t9iZy2DiqA0BSyvAVp9YF3lGUGtAlWFgjmK1RGoR2CPv3PGsahHYOu33+lyLJKaAMpn6z0y/qtzC0rlkipAT72PK6OPQ72PK9XkOGRRgFHhHPU6o8JZDUpgUQDAtgCjjya9X2/0rlyTTwGZAnAB7KWIXAjLFACYIXUBZt2o6vW6s44jNfExKHUBgHsoAKxRAFijALBGAWCNAsBa6gLMurnW63Vn3TwqIjetekhdACBMAVQ+XdXKP//+N3sJ0qrIzTWZAmQ5BvV+vdHHkZL4+GNRAGBxL8CoKTDqdUbtyiX57m9TgBHhHH3U6h3OYhB+uQJwIeyhilwA2z0W5bhLtyzazA/yHHfploEqJju/5AQYpVVoVT7F1iq0xSz8ko9GHB2sPdNg6/pGPh9ozzQoA4OvdPyxOwLdC3Ovp0OPdBpmxadDq5GcAJECtxZPiVvkdn/bawBAvgD8STSXKrj7SxcAWNwLwBTIoYru/vIFeEYJYqvC4Q9RgGeUIKYqHv4wBQAW9wIwBWKpAXb/UAV4RgliqEHCH64AGUsQKSwZ30+4AmQqwfF9RAvNNRHfR8gCZCjB+fojhifD+mX/GS7rP86tKW6k/9SsQYMffgJEnAZr1xklVDXIOtMXIEIJtq5PPVxVfH1WRyDlI1GLYiodiWqS4KcugEIRekykmUWoyYJvUYAonzHeyvkzvK1ZFKB3GWZef/QoQ00eeusCPFoK9YvtraWoRmG/hALAWpo/gwJ7UABYowCwRgFgjQLAGgWANQoAaxQA1igArFEAWKMAsEYBYI0CwBoFgDUKAGsUANYoAKxRAFijALBGAWCNAsDai8Or10+zFwHM8Jx9JgCsUQBYowCwRgFg7WsBuBCGm2PmmQCwRgFg7XsBOAbBxWnWmQCw9kMBmALI7jzjTABYowCw9lMBOAYhq0vZZgLA2sUCMAWQzbVMX50AlABZ3MoyRyBYu1kApgCiu5fhuxOAEiCqNdlddQSiBIhmbWa5BoC11QVgCiCKLVndNAEoAdRtzejmIxAlgKo92dx1DUAJoGZvJndfBFMCqHgki00ei/j508cvLX4PMHoTbvJnUKYBRmuVuWb3ASgBRmmZtS5PhuZIhB56bLJd7gQzDRAlU92/G4BpAOXNdOiXY1AGqJ0gpnw7DEWAytF5+tcjUQZvh8lf0TW9AJdQipwOgt9H9z/b01+5CFKJOgAAAABJRU5ErkJggg==">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22%EC%83%81%EC%88%98%EC%99%80%20%EB%B3%80%EC%88%98%22%2C%20%22short_name%22%3A%20%22%EC%83%81%EC%88%98%EC%99%80%EB%B3%80%EC%88%98%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22background_color%22%3A%20%22%23FFFFFF%22%2C%20%22theme_color%22%3A%20%22%23D6577E%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAGNElEQVR4nO3dO44bRxSF4R5BBJwIWoVW4NqMcieGQ61DoeHEuTdTXoFWISgxoEDGCKJAUXx0N%2Btx7j3/Fw%2BGReCcutXTw%2BbTIujzp49fZq8B7R1evX5axExfEGH3dphciikvTuihUoahL0jwoVaE7i9E6KFchm6/nOAjQhFe9PilhB9RMtW0VQQf0aZBswlA%2BDFKy6w1KQDhx2itMvfQKCH4iH4k2j0BCD9UPJLFXQUg/FCzN5ObC0D4oWpPNjcVgPBD3daMri4A4UcUW7La5U4wEMWqArD7I5q1mb1bAMKPqNZk92YBCD%2Biu5dhrgFg7WoB2P2Rxa0sXywA4Uc21zLNEQjWfioAuz%2ByupRtJgCsUQBY%2B6EAHH%2BQ3XnGmQCw9r0A7P5wcZp1JgCsUQBY%2B1oAjj9wc8w8EwDWKACsUQBYowCw9sQFMJwxAWCNAsAaBYA1CgBrFADWKACsUQBYowCwRgFgjQLAGgWANQoAaxQA1igArFEAWKMAsEYBYI0CwBoFgDUKAGsUANYoAKy9nL0ABR9%2Be7/6Z9/8/W5RV/76c/XP1t//WJzZPRdoS9gjlGJL2NeqRqWwKECP0M8sQ4/Qu5YhdQFGBn9EEUYG36UIKQswM/g9ijAz%2BNmLkKoASsFvUQSl4GctQpo/gyqHf8/6lMMfYX1WBVAP/9Z1RglXCbLOtEegKMFfeySKHKga9EgUdgJEDv%2Bl9UcOf%2BT1hyxA9PCfv4%2Bo4TkX8X2EOwJlCf/R219/WbKpgY5DoSYA4Y%2BhBJoEYQpA%2BGMpQUoQpgCAbQHY/WMqAaaAfAEIf2xFvATSBSD8ORThEkgXALAtALt/LkV0CsgWALC9Ezxr97/1P/uPrGnW3d5bd2Rn7chV7C6x/VMh1n5Q5fTnlI9nawN2%2BnNF9HhiOQFGhavFRxXXrHXU7t9iZy2DiqA0BSyvAVp9YF3lGUGtAlWFgjmK1RGoR2CPv3PGsahHYOu33%2BlyLJKaAMpn6z0y/qtzC0rlkipAT72PK6OPQ72PK9XkOGRRgFHhHPU6o8JZDUpgUQDAtgCjjya9X2/0rlyTTwGZAnAB7KWIXAjLFACYIXUBZt2o6vW6s44jNfExKHUBgHsoAKxRAFijALBGAWCNAsBa6gLMurnW63Vn3TwqIjetekhdACBMAVQ%2BXdXKP//%2BN3sJ0qrIzTWZAmQ5BvV%2BvdHHkZL4%2BGNRAGBxL8CoKTDqdUbtyiX57m9TgBHhHH3U6h3OYhB%2BuQJwIeyhilwA2z0W5bhLtyzazA/yHHfploEqJju/5AQYpVVoVT7F1iq0xSz8ko9GHB2sPdNg6/pGPh9ozzQoA4OvdPyxOwLdC3Ovp0OPdBpmxadDq5GcAJECtxZPiVvkdn/bawBAvgD8STSXKrj7SxcAWNwLwBTIoYru/vIFeEYJYqvC4Q9RgGeUIKYqHv4wBQAW9wIwBWKpAXb/UAV4RgliqEHCH64AGUsQKSwZ30%2B4AmQqwfF9RAvNNRHfR8gCZCjB%2BfojhifD%2BmX/GS7rP86tKW6k/9SsQYMffgJEnAZr1xklVDXIOtMXIEIJtq5PPVxVfH1WRyDlI1GLYiodiWqS4KcugEIRekykmUWoyYJvUYAonzHeyvkzvK1ZFKB3GWZef/QoQ00eeusCPFoK9YvtraWoRmG/hALAWpo/gwJ7UABYowCwRgFgjQLAGgWANQoAaxQA1igArFEAWKMAsEYBYI0CwBoFgDUKAGsUANYoAKxRAFijALBGAWCNAsDai8Or10%2BzFwHM8Jx9JgCsUQBYowCwRgFg7WsBuBCGm2PmmQCwRgFg7XsBOAbBxWnWmQCw9kMBmALI7jzjTABYowCw9lMBOAYhq0vZZgLA2sUCMAWQzbVMX50AlABZ3MoyRyBYu1kApgCiu5fhuxOAEiCqNdlddQSiBIhmbWa5BoC11QVgCiCKLVndNAEoAdRtzejmIxAlgKo92dx1DUAJoGZvJndfBFMCqHgki00ei/j508cvLX4PMHoTbvJnUKYBRmuVuWb3ASgBRmmZtS5PhuZIhB56bLJd7gQzDRAlU92/G4BpAOXNdOiXY1AGqJ0gpnw7DEWAytF5%2BtcjUQZvh8lf0TW9AJdQipwOgt9H9z/b01%2B5CFKJOgAAAABJRU5ErkJggg%3D%3D%22%2C%20%22sizes%22%3A%20%22192x192%22%2C%20%22type%22%3A%20%22image/png%22%2C%20%22purpose%22%3A%20%22any%22%7D%2C%20%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAS70lEQVR4nO3dPY4c1xmFYZJQA0oMrUIrkDaj3InhUOtwKChR7s3YK/AqCCYGJqBhGwO1embu9E9V3e%2B753lSw2R39UjnrVtN6uMHSnv68vnr7NcAcI/Tn7776MrV5cOZzMADqQTCXALgQMYeYEwUHEcA7MTYA2xDFOxDAGzI6APsSwxsRwA8yOgDzCEGHiMA7mD0AWoRA7cTAFcy%2BgA9iIHrCIABow/Qmxh4mwB4heEHWIsQeEkAnDH8AGsTAr8TAIYfIM7JX1OcHQDu%2BAGynYJDIPKNG34A0kMg6g0bfgBGTkEhEPFGDT8AtzgFhMDSb9DwA/CI08Ih8OnDoow/ALbkbcuVjeEHYA%2BnxU4DljoBMP4A2JjrLFEzhh%2BAI50WOA1ofwJg/AGwPWEBYPwBsEH3aXmEYfgBqOTU8JFAuxMA4w9ANU9fPn/90EyrAOh4gQHI8NRso1ocWXS7qABkOzV4JFD%2BBMD4A9DNU4Mb19IB0OECAkDHDSsbANUvHAB03rKSAVD5ggHACptWLgCqXigAWGnbSgVAxQsEACtuXJkAqHZhAGDlrSsRAJUuCAAkbN70AKhyIQAgafs%2BpV8AAEjcwE%2BpbxwAZpu5hVMCwPgDwNxNPDwAjD8AzN/GQwPA%2BANAjY08LACMPwDU2crpfwwQADjeIQHg7h8Aam3m7gFg/AGg3nbuGgDGHwBqbqjvAABAoN0CwN0/ANTd0l0CwPgDQO1N3TwAjD8A1N9W3wEAgECbBoC7fwDYx9Ybu1kAGH8A2NeWW%2BsRAAAE2iQA3P0DwDG22tyHA8D4A8CxtthejwAAINBDAeDuHwDmeHSDnQAAQKC7A8DdPwDM9cgWOwEAgEB3BYC7fwCo4d5NdgIAAIFuDgB3/wBQyz3b7AQAAALdFADu/gGgpls32gkAAAS6OgDc/QNAbbdstRMAAAh0VQC4%2BweAHq7dbCcAABDo3QBw9w8AvVyz3U4AACCQAACAQMMAcPwPAD29t%2BFOAAAgkAAAgEBvBoDjfwDobbTlTgAAIJAAAIBArwaA438AWMNbm%2B4EAAACCQAACPQiABz/A8BaXtt2JwAAEEgAAEB6ADj%2BB4A1XW68EwAACCQAACCQAACAQAIAAJIDwBcAAWBt51vvBAAAAgkAAAgkAAAgkAAAgNQA8AVAAMjwvPlOAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAJ99HcAAEAeJwAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQKBvZr8A2Mq//vy3zX6t73/7ebNfixp%2B/PWXzX6tf/zlr5v9WjDLx6cvn79O%2B91h4sjfSxxkjPy9xAFdCADKqjD21xIFmWN/LVFARQKAMjoN/nsEQfbgv0cQUIEAYJqVBv89giB78N8jCJhBAHCopNF/ixh4W9Lov0UMcBQBwCEM/0tC4HeG/yUhwN4EALsx%2BtdLjAGjfz0xwB4EAJsz/PdLCAHDfz8hwJYEAJsx/NtZMQQM/3aEAFsQADzM8O9nhRAw/PsRAjxCAHA3w3%2BcjiFg%2BI8jBLiHAOBmhn%2BeDiFg%2BOcRAtxCAHA1w19HxRAw/HUIAa4hAHiX4a%2BrQggY/rqEACOfhv8r8Yx/bbM/H%2BNfm8%2BHEScAlBwWap8GGJZ%2BnAZwyQkALxj/no763Ix/Tz43LgkA/sD497b352dEevP5cc4jAP7H8K9ny0cChmM9HgngBADjv6itos74r8nnigAI585/bY9%2BvkZibT7fbB4BhDL8eW55JGAY8ngkkMcJQCDjn%2Bnaz934Z/K55xEAYYx/tvc%2BfyOQzeefRQAEMf6Mfg78yx8/B1kEQAjjz%2Bjnwfjj5yGPAAhg/Bn9XBh/XuPnYn3%2BFMDijD8jP/3wrQvEkD8dsC4nAAsz/owYf67hJGBdAmBRxp8R488tRMCaBMCCjD8jxp97iID1CIDFGH9GjD%2BPEAFrEQALMf6MGH%2B2IALWIQAWYfwZMf5sSQSsQQAswPgzYvzZgwjoTwAAQCAB0Jy7f0bc/bMnpwC9CYDGjD8jxp8jiIC%2BBEBTxp8R48%2BRREBPAgAAAgmAhtz9M%2BLunxmcAvQjAJox/owYf2YSAb0IgEaMPyPGnwpEQB8CAAACCYAm3P0z4u6fSpwC9CAAGjD%2BjBh/KhIB9QkAAAgkAIpz98%2BIu38qcwpQmwAAgEACoDB3/4y4%2B6cDpwB1CQAACCQAinL3z4i7fzpxClCTAACAQAKgIHf/jLj7pyOnAPUIAAAIJACKcffPiLt/OnMKUMs3s18A7OH7336%2B%2Bf8jvnL84y9/vfn/Y7xYzcenL5%2B/zn4R/J8BOnbwu30e7v6PHfz3CIJanwe3cwJAS3sM/nu/R7UgYO7AXP4egoBunAAUYVzqDH/Fz8rdf587SyHQ57NK5wSAFioM/%2BVrEW11VBqT59ciBKhOAFBapeG/JATmqzT8l4QA1XkEUIA7yV7Df/Tn6Pi/1/C/xYnAGp/jSvw9AJTTcfw7v%2B5uuo5G19fNugTAZO7%2B1xrRrV%2B/u/%2B1RrT769%2BaU5G5fAeAEroP/znfDdjeSsPpuwFU4QSA6VYa/4T3dbSVxj/hfdGHAJjI8f/6I/nI%2B3P8v/5Irv7%2BruExwDwCgGlWH/%2B097m1lHFMeZ/UIwCYIm0U097vo9JGMe39UoMA4HCpY5j6vm%2BVOoap75t5BMAknv8z4vk/SXwPYA4BwKHS74LT3/970u%2BC098/xxIAHMb4uQ4jxs914FgCgEMYf9djxPi7HhxPAEzg%2BT8jnv%2BTyPcAjicA2J27f9dlxN2/68IcAgAAAgkAduXu3/UZcfc/5vqwJwEAAIEEwMGSvgDo7v/265T0BUB3t67TJV8EPJYAAIBAAoBduPt3vUbc/d/G9WIPAgAAAgkAAAgkAAAgkABgc57/u24jnmffx3VjawLgQEl/BJDbpfwRKP8cMJLyz0EFAgAAAgkAAAgkANiU5/%2BM/P2f/3aBHuB7AGxJAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIALAp/613Rn764VsX6AE//vqL68dmBAAABBIAABBIABzo%2B99%2BPvK3o5mU/9a7fw4YSfnnoAIBwOZ8D8B1G/Ec%2Bz6uG1sTAAAQSAAAQCABAACBBAC78D0A12vE8%2BzbuF7sQQAAQCABcLCkPwLlFOD26/T3f/77Qwp3ta7TJX8E8FgCAAACCQB25RTA9RlxCjDm%2BrAnAQAAgQQAu3MK4LqMuMt1XZhDAEyQ9EVAbpf0RUB45guAxxMAHMIpgOsx4hTA9eB4AoDDiADXYUQEuA4cSwBwqPQISH//70mPgPT3z7EEwCS%2BB8CI7wGQxPP/OQQAh0u9C05937dKvQtOfd/MIwCYIm0M097vo9LGMO39UoMAYJqUUUx5n1tLGcWU90k9AmAi3wNYfxwfeX%2B%2BB7D%2BOK7%2B/q7h%2Bf88AoDpVo2AVd/X0VYdyVXfF318M/sFwPlYrnAqYvj3G8sV7hYNP1U4AZhshcHbUvfx3Pr1ewyw1nh2f/1bWyHoOhMAlNM1Arq%2B7m66jmjX1826Pj59%2Bfx19ovAeHQ%2BITli%2BH/64dvdf4%2BOOtxBGv6%2Bn93qfAeA0ip/N8Ad/3yVvxtg%2BKlOANBCpRAw/PVUCgHDTxceARRiWK43IwRmfz4eA1xvRggY/utVCDWcANDU5RjvEQSzB5/txniPwTH4dOcEoBijs417gqDDtXcKsI17gsDgz7v27MN3AFhShzFnHmMO/h6Acip8yY26/MVAdObuvxZ/ERAABBIABTkFYMQpAB25%2B69HAABAIAFQlFMARpwC0Im7/5oEAAAEEgCFOQVgxCkAHbj7r0sAAEAgAVCcUwBGnAJQmbv/2gQAAAQSAA04BWDEKQAVufuvTwA0IQIYEQFUYvx7EAAAEEgANOIUgBGnAFTg7r8PAdCMCGBEBDCT8e9FADQkAhgRAcxg/PsRAAAQSAA05RSAEacAHMndf08CoDERwIgI4AjGvy8B0JwIYEQEsCfj35sAAIBAAmABTgEYcQrAHtz99ycAFiECGBEBbMn4r0EALEQEMCIC2ILxX4cAWIwIYEQE8AjjvxYBsCARwIgI4B7Gfz0CYFEigBERwC2M/5oEwMJEACMigGsY/3UJgMWJAEb8yx0/H7kEQAARwOjnQgTwGj8X6xMAIUQAo58H/7LHz0MeARBEBDD6ORAB%2BDnIIgDCiIBs733%2BIiCbzz%2BLAAgkAjJd%2B7kbgUw%2B9zwfn758/jr7RTDPv/78N5d/cY8E34%2B//rLpa6Eew5/LCUA4pwFre/TzNQ5r8/lmEwCIgEVtFXdGYk0%2BVzwC4A88Euhvz1MdjwT6M/w8cwLAH3gk0Nven5/x6M3nxzkBwAsioKejPjcj0pPPjUseATDkkUB9M4PNI4H6DD9vcQLAkNOA2mZ/PsalNp8PI04AuJrTgDpmD/9rnAbUYfi5hgDgZkJgnorDf0kIzGP4uYUA4G5C4Dgdhv%2BSEDiO4eceAoCHCYH9dBz%2BS0JgP4afRwgANiMEtrPC8F8SAtsx/GxBALA5IXC/FYf/khC4n%2BFnSwKA3QiB6yUM/yUhcD3Dzx4EAIcQAy8ljv5bxMBLRp%2B9CQAOJQQM/4gQMPwcRwAwTVIMuNu/XVIMuNtnBgFAGSsFgcHf3kpBYPCpQABQVqcgMPjH6xQEBp%2BKBACtVIgCY19XhSgw9nQhAFjGlnFg5NezZRwYeVYgAAAg0KfZLwAAOJ4AAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAg0KfTn777OPtFAADH%2Be/2OwEAgEACAAACCQAACCQAACCQAACAQAIAAAIJAABIDQB/FwAAZHjefCcAABBIAABAIAEAAIEEAAAkB4AvAgLA2s633gkAAAQSAAAQSAAAQCABAADpAeCLgACwpsuNdwIAAIEEAAAEehEAHgMAwFpe23YnAAAQSAAAQKBXA8BjAABYw1ub7gQAAAIJAAAI9GYAeAwAAL2NttwJAAAEEgAAEGgYAB4DAEBP7224EwAACCQAACDQuwHgMQAA9HLNdjsBAIBAVwWAUwAA6OHazXYCAACBrg4ApwAAUNstW%2B0EAAAC3RQATgEAoKZbN9oJAAAEujkAnAIAQC33bLMTAAAIdFcAOAUAgBru3WQnAAAQ6O4AcAoAAHM9ssVOAAAg0EMB4BQAAOZ4dIOdAABAoIcDwCkAABxri%2B3d5ARABADAMbbaXI8AACDQZgHgFAAA9rXl1m56AiACAGAfW2%2BsRwAAEGjzAHAKAAD1t3WXEwARAAC1N3W3RwAiAADqbqnvAABAoF0DwCkAANTc0N1PAEQAANTbzkMeAYgAAKi1mb4DAACBDgsApwAAUGcrDz0BEAEAUGMjD38EIAIAYP42TvkOgAgAgLmbOO1LgCIAgHSnSeM//U8BiAAAUp0mjn%2BJPwY4%2BwIAQOL2TQ%2BAKhcCAJI2r0QAVLogAJCwdWUCoNqFAYCVN65UAFS8QACw4raVC4CqFwoAVtq0kgFQ%2BYIBwApbVjYAql84AOi8YaUDoMMFBICO21X%2BBZ57%2BvL56%2BzXAACdh7/NCUDXCwtAllOzjWoVAB0vMADrOzXcpnYv%2BJxHAgDMdGo4/G1PAFa58AD0dmq%2BQa0DYIUPAIB%2BTgtsT/s3cM4jAQD2dFpg%2BJc5AVj1gwGgltNiG7PUmznnNACALZwWG/4lTwASPjAAjnNaeEuWfWPnnAYAcIvTwsP/bPk3eE4IAJA%2B/M9i3ug5IQBA6vA/i3vD54QAQLZT4PA/i33j54QAQJZT8PA/i78A54QAwNoM/%2B8EwCuEAMBaDP9LAmBACAD0ZvjfJgCuJAYAejD61xEAdxADALUY/dsJgAeJAYA5jP5jBMCGxADAvoz%2BdgTATsQAwDaM/j4EwIFEAcCYsT%2BOAJhMFACpjP1cAqA4gQB0ZeA/lPYf4M1IS7DVMfsAAAAASUVORK5CYII%3D%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/png%22%2C%20%22purpose%22%3A%20%22any%22%7D%2C%20%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAS70lEQVR4nO3dPY4c1xmFYZJQA0oMrUIrkDaj3InhUOtwKChR7s3YK/AqCCYGJqBhGwO1embu9E9V3e%2B753lSw2R39UjnrVtN6uMHSnv68vnr7NcAcI/Tn7776MrV5cOZzMADqQTCXALgQMYeYEwUHEcA7MTYA2xDFOxDAGzI6APsSwxsRwA8yOgDzCEGHiMA7mD0AWoRA7cTAFcy%2BgA9iIHrCIABow/Qmxh4mwB4heEHWIsQeEkAnDH8AGsTAr8TAIYfIM7JX1OcHQDu%2BAGynYJDIPKNG34A0kMg6g0bfgBGTkEhEPFGDT8AtzgFhMDSb9DwA/CI08Ih8OnDoow/ALbkbcuVjeEHYA%2BnxU4DljoBMP4A2JjrLFEzhh%2BAI50WOA1ofwJg/AGwPWEBYPwBsEH3aXmEYfgBqOTU8JFAuxMA4w9ANU9fPn/90EyrAOh4gQHI8NRso1ocWXS7qABkOzV4JFD%2BBMD4A9DNU4Mb19IB0OECAkDHDSsbANUvHAB03rKSAVD5ggHACptWLgCqXigAWGnbSgVAxQsEACtuXJkAqHZhAGDlrSsRAJUuCAAkbN70AKhyIQAgafs%2BpV8AAEjcwE%2BpbxwAZpu5hVMCwPgDwNxNPDwAjD8AzN/GQwPA%2BANAjY08LACMPwDU2crpfwwQADjeIQHg7h8Aam3m7gFg/AGg3nbuGgDGHwBqbqjvAABAoN0CwN0/ANTd0l0CwPgDQO1N3TwAjD8A1N9W3wEAgECbBoC7fwDYx9Ybu1kAGH8A2NeWW%2BsRAAAE2iQA3P0DwDG22tyHA8D4A8CxtthejwAAINBDAeDuHwDmeHSDnQAAQKC7A8DdPwDM9cgWOwEAgEB3BYC7fwCo4d5NdgIAAIFuDgB3/wBQyz3b7AQAAALdFADu/gGgpls32gkAAAS6OgDc/QNAbbdstRMAAAh0VQC4%2BweAHq7dbCcAABDo3QBw9w8AvVyz3U4AACCQAACAQMMAcPwPAD29t%2BFOAAAgkAAAgEBvBoDjfwDobbTlTgAAIJAAAIBArwaA438AWMNbm%2B4EAAACCQAACPQiABz/A8BaXtt2JwAAEEgAAEB6ADj%2BB4A1XW68EwAACCQAACCQAACAQAIAAJIDwBcAAWBt51vvBAAAAgkAAAgkAAAgkAAAgNQA8AVAAMjwvPlOAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAJ99HcAAEAeJwAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQKBvZr8A2Mq//vy3zX6t73/7ebNfixp%2B/PWXzX6tf/zlr5v9WjDLx6cvn79O%2B91h4sjfSxxkjPy9xAFdCADKqjD21xIFmWN/LVFARQKAMjoN/nsEQfbgv0cQUIEAYJqVBv89giB78N8jCJhBAHCopNF/ixh4W9Lov0UMcBQBwCEM/0tC4HeG/yUhwN4EALsx%2BtdLjAGjfz0xwB4EAJsz/PdLCAHDfz8hwJYEAJsx/NtZMQQM/3aEAFsQADzM8O9nhRAw/PsRAjxCAHA3w3%2BcjiFg%2BI8jBLiHAOBmhn%2BeDiFg%2BOcRAtxCAHA1w19HxRAw/HUIAa4hAHiX4a%2BrQggY/rqEACOfhv8r8Yx/bbM/H%2BNfm8%2BHEScAlBwWap8GGJZ%2BnAZwyQkALxj/no763Ix/Tz43LgkA/sD497b352dEevP5cc4jAP7H8K9ny0cChmM9HgngBADjv6itos74r8nnigAI585/bY9%2BvkZibT7fbB4BhDL8eW55JGAY8ngkkMcJQCDjn%2Bnaz934Z/K55xEAYYx/tvc%2BfyOQzeefRQAEMf6Mfg78yx8/B1kEQAjjz%2Bjnwfjj5yGPAAhg/Bn9XBh/XuPnYn3%2BFMDijD8jP/3wrQvEkD8dsC4nAAsz/owYf67hJGBdAmBRxp8R488tRMCaBMCCjD8jxp97iID1CIDFGH9GjD%2BPEAFrEQALMf6MGH%2B2IALWIQAWYfwZMf5sSQSsQQAswPgzYvzZgwjoTwAAQCAB0Jy7f0bc/bMnpwC9CYDGjD8jxp8jiIC%2BBEBTxp8R48%2BRREBPAgAAAgmAhtz9M%2BLunxmcAvQjAJox/owYf2YSAb0IgEaMPyPGnwpEQB8CAAACCYAm3P0z4u6fSpwC9CAAGjD%2BjBh/KhIB9QkAAAgkAIpz98%2BIu38qcwpQmwAAgEACoDB3/4y4%2B6cDpwB1CQAACCQAinL3z4i7fzpxClCTAACAQAKgIHf/jLj7pyOnAPUIAAAIJACKcffPiLt/OnMKUMs3s18A7OH7336%2B%2Bf8jvnL84y9/vfn/Y7xYzcenL5%2B/zn4R/J8BOnbwu30e7v6PHfz3CIJanwe3cwJAS3sM/nu/R7UgYO7AXP4egoBunAAUYVzqDH/Fz8rdf587SyHQ57NK5wSAFioM/%2BVrEW11VBqT59ciBKhOAFBapeG/JATmqzT8l4QA1XkEUIA7yV7Df/Tn6Pi/1/C/xYnAGp/jSvw9AJTTcfw7v%2B5uuo5G19fNugTAZO7%2B1xrRrV%2B/u/%2B1RrT769%2BaU5G5fAeAEroP/znfDdjeSsPpuwFU4QSA6VYa/4T3dbSVxj/hfdGHAJjI8f/6I/nI%2B3P8v/5Irv7%2BruExwDwCgGlWH/%2B097m1lHFMeZ/UIwCYIm0U097vo9JGMe39UoMA4HCpY5j6vm%2BVOoap75t5BMAknv8z4vk/SXwPYA4BwKHS74LT3/970u%2BC098/xxIAHMb4uQ4jxs914FgCgEMYf9djxPi7HhxPAEzg%2BT8jnv%2BTyPcAjicA2J27f9dlxN2/68IcAgAAAgkAduXu3/UZcfc/5vqwJwEAAIEEwMGSvgDo7v/265T0BUB3t67TJV8EPJYAAIBAAoBduPt3vUbc/d/G9WIPAgAAAgkAAAgkAAAgkABgc57/u24jnmffx3VjawLgQEl/BJDbpfwRKP8cMJLyz0EFAgAAAgkAAAgkANiU5/%2BM/P2f/3aBHuB7AGxJAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIALAp/613Rn764VsX6AE//vqL68dmBAAABBIAABBIABzo%2B99%2BPvK3o5mU/9a7fw4YSfnnoAIBwOZ8D8B1G/Ec%2Bz6uG1sTAAAQSAAAQCABAACBBAC78D0A12vE8%2BzbuF7sQQAAQCABcLCkPwLlFOD26/T3f/77Qwp3ta7TJX8E8FgCAAACCQB25RTA9RlxCjDm%2BrAnAQAAgQQAu3MK4LqMuMt1XZhDAEyQ9EVAbpf0RUB45guAxxMAHMIpgOsx4hTA9eB4AoDDiADXYUQEuA4cSwBwqPQISH//70mPgPT3z7EEwCS%2BB8CI7wGQxPP/OQQAh0u9C05937dKvQtOfd/MIwCYIm0M097vo9LGMO39UoMAYJqUUUx5n1tLGcWU90k9AmAi3wNYfxwfeX%2B%2BB7D%2BOK7%2B/q7h%2Bf88AoDpVo2AVd/X0VYdyVXfF318M/sFwPlYrnAqYvj3G8sV7hYNP1U4AZhshcHbUvfx3Pr1ewyw1nh2f/1bWyHoOhMAlNM1Arq%2B7m66jmjX1826Pj59%2Bfx19ovAeHQ%2BITli%2BH/64dvdf4%2BOOtxBGv6%2Bn93qfAeA0ip/N8Ad/3yVvxtg%2BKlOANBCpRAw/PVUCgHDTxceARRiWK43IwRmfz4eA1xvRggY/utVCDWcANDU5RjvEQSzB5/txniPwTH4dOcEoBijs417gqDDtXcKsI17gsDgz7v27MN3AFhShzFnHmMO/h6Acip8yY26/MVAdObuvxZ/ERAABBIABTkFYMQpAB25%2B69HAABAIAFQlFMARpwC0Im7/5oEAAAEEgCFOQVgxCkAHbj7r0sAAEAgAVCcUwBGnAJQmbv/2gQAAAQSAA04BWDEKQAVufuvTwA0IQIYEQFUYvx7EAAAEEgANOIUgBGnAFTg7r8PAdCMCGBEBDCT8e9FADQkAhgRAcxg/PsRAAAQSAA05RSAEacAHMndf08CoDERwIgI4AjGvy8B0JwIYEQEsCfj35sAAIBAAmABTgEYcQrAHtz99ycAFiECGBEBbMn4r0EALEQEMCIC2ILxX4cAWIwIYEQE8AjjvxYBsCARwIgI4B7Gfz0CYFEigBERwC2M/5oEwMJEACMigGsY/3UJgMWJAEb8yx0/H7kEQAARwOjnQgTwGj8X6xMAIUQAo58H/7LHz0MeARBEBDD6ORAB%2BDnIIgDCiIBs733%2BIiCbzz%2BLAAgkAjJd%2B7kbgUw%2B9zwfn758/jr7RTDPv/78N5d/cY8E34%2B//rLpa6Eew5/LCUA4pwFre/TzNQ5r8/lmEwCIgEVtFXdGYk0%2BVzwC4A88Euhvz1MdjwT6M/w8cwLAH3gk0Nven5/x6M3nxzkBwAsioKejPjcj0pPPjUseATDkkUB9M4PNI4H6DD9vcQLAkNOA2mZ/PsalNp8PI04AuJrTgDpmD/9rnAbUYfi5hgDgZkJgnorDf0kIzGP4uYUA4G5C4Dgdhv%2BSEDiO4eceAoCHCYH9dBz%2BS0JgP4afRwgANiMEtrPC8F8SAtsx/GxBALA5IXC/FYf/khC4n%2BFnSwKA3QiB6yUM/yUhcD3Dzx4EAIcQAy8ljv5bxMBLRp%2B9CQAOJQQM/4gQMPwcRwAwTVIMuNu/XVIMuNtnBgFAGSsFgcHf3kpBYPCpQABQVqcgMPjH6xQEBp%2BKBACtVIgCY19XhSgw9nQhAFjGlnFg5NezZRwYeVYgAAAg0KfZLwAAOJ4AAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAg0KfTn777OPtFAADH%2Be/2OwEAgEACAAACCQAACCQAACCQAACAQAIAAAIJAABIDQB/FwAAZHjefCcAABBIAABAIAEAAIEEAAAkB4AvAgLA2s633gkAAAQSAAAQSAAAQCABAADpAeCLgACwpsuNdwIAAIEEAAAEehEAHgMAwFpe23YnAAAQSAAAQKBXA8BjAABYw1ub7gQAAAIJAAAI9GYAeAwAAL2NttwJAAAEEgAAEGgYAB4DAEBP7224EwAACCQAACDQuwHgMQAA9HLNdjsBAIBAVwWAUwAA6OHazXYCAACBrg4ApwAAUNstW%2B0EAAAC3RQATgEAoKZbN9oJAAAEujkAnAIAQC33bLMTAAAIdFcAOAUAgBru3WQnAAAQ6O4AcAoAAHM9ssVOAAAg0EMB4BQAAOZ4dIOdAABAoIcDwCkAABxri%2B3d5ARABADAMbbaXI8AACDQZgHgFAAA9rXl1m56AiACAGAfW2%2BsRwAAEGjzAHAKAAD1t3WXEwARAAC1N3W3RwAiAADqbqnvAABAoF0DwCkAANTc0N1PAEQAANTbzkMeAYgAAKi1mb4DAACBDgsApwAAUGcrDz0BEAEAUGMjD38EIAIAYP42TvkOgAgAgLmbOO1LgCIAgHSnSeM//U8BiAAAUp0mjn%2BJPwY4%2BwIAQOL2TQ%2BAKhcCAJI2r0QAVLogAJCwdWUCoNqFAYCVN65UAFS8QACw4raVC4CqFwoAVtq0kgFQ%2BYIBwApbVjYAql84AOi8YaUDoMMFBICO21X%2BBZ57%2BvL56%2BzXAACdh7/NCUDXCwtAllOzjWoVAB0vMADrOzXcpnYv%2BJxHAgDMdGo4/G1PAFa58AD0dmq%2BQa0DYIUPAIB%2BTgtsT/s3cM4jAQD2dFpg%2BJc5AVj1gwGgltNiG7PUmznnNACALZwWG/4lTwASPjAAjnNaeEuWfWPnnAYAcIvTwsP/bPk3eE4IAJA%2B/M9i3ug5IQBA6vA/i3vD54QAQLZT4PA/i33j54QAQJZT8PA/i78A54QAwNoM/%2B8EwCuEAMBaDP9LAmBACAD0ZvjfJgCuJAYAejD61xEAdxADALUY/dsJgAeJAYA5jP5jBMCGxADAvoz%2BdgTATsQAwDaM/j4EwIFEAcCYsT%2BOAJhMFACpjP1cAqA4gQB0ZeA/lPYf4M1IS7DVMfsAAAAASUVORK5CYII%3D%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/png%22%2C%20%22purpose%22%3A%20%22maskable%22%7D%5D%7D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --paper-raised:#FCF8F7;
+    --ink:#3A2730;
+    --muted:#9C7F86;
+    --line:#F0DCE0;
+    --constant:#D6577E;
+    --constant-strong:#B23F63;
+    --constant-soft:#F7DCE4;
+    --variable:#2F8A86;
+    --variable-strong:#216661;
+    --variable-soft:#DCEEEC;
+    --danger:#A8435E;
+    --shadow: 0 1px 0 rgba(58,39,48,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1C1A19;
+      --paper-raised:#242220;
+      --ink:#ECE8E4;
+      --muted:#A79E98;
+      --line:#37332F;
+      --constant:#EE8AA9;
+      --constant-strong:#F5A8C0;
+      --constant-soft:#332727;
+      --variable:#6FC7C0;
+      --variable-strong:#93DAD3;
+      --variable-soft:#1C2624;
+      --danger:#E58FA0;
+      --shadow: 0 1px 0 rgba(0,0,0,0.25);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1C1A19;
+    --paper-raised:#242220;
+    --ink:#ECE8E4;
+    --muted:#A79E98;
+    --line:#37332F;
+    --constant:#EE8AA9;
+    --constant-strong:#F5A8C0;
+    --constant-soft:#332727;
+    --variable:#6FC7C0;
+    --variable-strong:#93DAD3;
+    --variable-soft:#1C2E2C;
+    --danger:#E58FA0;
+    --shadow: 0 1px 0 rgba(0,0,0,0.25);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Gowun Dodum","Apple SD Gothic Neo",sans-serif;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px; margin:0 auto; padding:28px 20px 80px;}
+
+  h1,h2,h3{font-family:"Gowun Batang","Noto Serif KR",serif; font-weight:700; text-wrap:balance; margin:0;}
+
+  /* header */
+  header.top{
+    display:flex; flex-wrap:wrap; gap:18px 28px; align-items:flex-end; justify-content:space-between;
+    padding-bottom:18px; border-bottom:1px solid var(--line); margin-bottom:22px;
+  }
+  .brand h1{font-size:1.7rem; letter-spacing:0.01em;}
+  .brand p{margin:6px 0 0; color:var(--muted); font-size:0.92rem;}
+  .datenav{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  .datenav button{
+    border:1px solid var(--line); background:var(--paper-raised); color:var(--ink);
+    width:34px; height:34px; border-radius:8px; font-size:1rem; cursor:pointer; line-height:1;
+  }
+  .datenav button:hover{border-color:var(--constant);}
+  .datenav input[type="date"]{
+    border:1px solid var(--line); background:var(--paper-raised); color:var(--ink);
+    border-radius:8px; padding:7px 10px; font-family:inherit; font-size:0.92rem;
+  }
+  .datenav .today-btn{
+    border-radius:8px; border:1px solid var(--line); background:var(--paper-raised);
+    color:var(--ink); padding:7px 12px; font-size:0.88rem; cursor:pointer; width:auto;
+  }
+  .save-status{
+    width:100%; text-align:right; font-size:0.8rem; color:var(--muted); margin-top:4px;
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* formula */
+  .formula{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:14px;
+    padding:26px 24px; margin-bottom:22px; box-shadow:var(--shadow); text-align:center;
+  }
+  .formula h2{font-size:1rem; color:var(--muted); font-family:"Gowun Dodum",sans-serif; letter-spacing:0.04em; margin-bottom:14px;}
+  .formula-main{
+    font-family:"Gowun Batang",serif; font-weight:700; font-size:2rem; color:var(--ink);
+    letter-spacing:0.01em;
+  }
+  .formula-main .fx-var{border-bottom:3px dashed var(--constant-strong); padding:0 4px 3px;}
+  .formula-main .fx-const{border-bottom:3px solid var(--constant-strong); padding:0 4px 3px;}
+  .formula-example{
+    margin-top:14px; color:var(--muted); font-size:0.92rem; font-family:"Gowun Dodum",sans-serif;
+  }
+  .formula-legend{
+    display:flex; justify-content:center; gap:22px; margin-top:16px; font-size:0.8rem; color:var(--muted);
+  }
+  .formula-legend span{display:inline-flex; align-items:center; gap:6px;}
+  .formula-legend i{display:inline-block; width:18px; height:0; border-top:3px dashed var(--constant-strong);}
+  .formula-legend i.solid{border-top-style:solid;}
+
+  /* quotes */
+  details.quotes{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:12px;
+    padding:22px 22px 20px; margin-bottom:26px; box-shadow:var(--shadow);
+  }
+  .quote-cols{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
+  @media (max-width:640px){ .quote-cols{grid-template-columns:1fr;} }
+  .quote-col h3{
+    font-family:"Gowun Dodum",sans-serif; font-size:0.78rem; letter-spacing:0.08em;
+    margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--line);
+  }
+  .quote-col.col-var h3{color:var(--variable-strong);}
+  .quote-col.col-const h3{color:var(--constant-strong);}
+  .quote-list{display:flex; flex-direction:column; gap:14px;}
+  .quote-item{
+    padding-left:14px; border-left:4px solid var(--variable); font-family:"Gowun Batang",serif;
+    font-size:1.1rem; font-weight:700; line-height:1.5;
+  }
+  .quote-col.col-const .quote-item{border-left-color:var(--constant);}
+
+  /* grid */
+  .board{display:grid; grid-template-columns: 1fr 1fr; gap:22px; align-items:start;}
+  @media (max-width:860px){ .board{grid-template-columns:1fr;} }
+
+  .panel{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:14px;
+    padding:20px 20px 22px; box-shadow:var(--shadow);
+  }
+  .panel.constant{border-top:4px solid var(--constant);}
+  .panel.variable{border-top:4px solid var(--variable);}
+
+  .panel-head{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:4px;}
+  .panel-head h2{font-size:1.2rem;}
+  .panel-head .accent-const{color:var(--constant-strong);}
+  .panel-head .accent-var{color:var(--variable-strong);}
+  .panel-sub{color:var(--muted); font-size:0.85rem; margin:2px 0 16px;}
+  .panel-save-row{display:flex; justify-content:flex-end; margin-top:18px; padding-top:16px; border-top:1px solid var(--line);}
+
+  .field{margin-bottom:16px;}
+  .field label{
+    display:block; font-size:0.84rem; color:var(--muted); margin-bottom:6px;
+  }
+  .field textarea, .field input[type=text], .field select{
+    width:100%; border:1px solid var(--line); background:var(--paper);
+    color:var(--ink); border-radius:9px; padding:9px 11px; font-family:inherit; font-size:0.95rem;
+    resize:vertical;
+  }
+  .field textarea:focus, .field input:focus, .field select:focus{outline:2px solid var(--constant); outline-offset:1px;}
+  .panel.variable .field textarea:focus, .panel.variable .field input:focus, .panel.variable .field select:focus{outline-color:var(--variable);}
+
+  .dd-acceptance{
+    display:inline-block; font-size:0.74rem; padding:2px 9px; border-radius:999px;
+    margin:2px 0 10px; border:1px solid var(--line); color:var(--muted);
+  }
+  .dd-acceptance.tag-accepted{color:var(--variable-strong); border-color:var(--variable);}
+  .dd-acceptance.tag-resisted{color:var(--danger); border-color:var(--danger);}
+  .dd-acceptance.tag-unsure{color:var(--muted); border-color:var(--line);}
+
+  .field-headrow{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+  .field-headrow label{margin-bottom:0;}
+  .btn-tiny{padding:3px 10px; font-size:0.72rem; border-radius:7px;}
+  .routine-list{display:flex; flex-direction:column; gap:9px; margin-top:2px;}
+  .routine-row{display:flex; align-items:center; gap:9px; font-size:0.93rem;}
+  .routine-row input[type="checkbox"]{width:16px; height:16px; accent-color:var(--constant); flex:none;}
+  .routine-row.checked span{color:var(--muted); text-decoration:line-through;}
+  .routine-empty{color:var(--muted); font-size:0.85rem;}
+  .routine-manage{margin-top:12px; padding:12px; border:1px dashed var(--constant); border-radius:9px; background:var(--constant-soft);}
+  .rm-row{display:flex; align-items:center; justify-content:space-between; gap:8px; padding:4px 0; font-size:0.88rem;}
+  .rm-add{display:flex; gap:8px; margin-top:8px;}
+  .rm-add input{flex:1; border:1px solid var(--line); border-radius:8px; padding:7px 9px; font-family:inherit; background:var(--paper);}
+  .rm-x{background:none; border:none; color:var(--danger); cursor:pointer; font-size:0.85rem; padding:2px 6px;}
+
+  .goals-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px 12px; margin-bottom:6px;}
+  @media (max-width:420px){.goals-grid{grid-template-columns:1fr;}}
+  .goal-field label{
+    display:flex; align-items:center; gap:6px; font-size:0.8rem; color:var(--muted); margin-bottom:5px;
+  }
+  .goal-dot{width:7px; height:7px; border-radius:50%; background:var(--constant); flex:none;}
+
+  /* variable entries */
+  .add-row{display:flex; justify-content:flex-end; margin-bottom:14px;}
+  .btn{
+    border:none; border-radius:9px; padding:9px 14px; font-family:inherit; font-size:0.88rem;
+    cursor:pointer;
+  }
+  .btn-var{background:var(--variable); color:#fff;}
+  .btn-var:hover{background:var(--variable-strong);}
+  .btn-const{background:var(--constant); color:#fff;}
+  .btn-const:hover{background:var(--constant-strong);}
+  .btn-ghost{background:transparent; border:1px solid var(--line); color:var(--ink);}
+  .btn-danger{background:transparent; color:var(--danger); border:1px solid var(--line);}
+
+  .entry-form{
+    border:1px dashed var(--variable); border-radius:10px; padding:14px; margin-bottom:16px;
+    background:var(--variable-soft);
+  }
+  .entry-form-hint{color:var(--muted); font-size:0.82rem; margin:0 0 12px;}
+  .entry-form .row-actions{display:flex; gap:8px; justify-content:flex-end; margin-top:4px;}
+
+  .entries{display:flex; flex-direction:column; gap:12px;}
+  .entry-card{
+    border:1px solid var(--line); border-radius:10px; padding:13px 14px; background:var(--paper);
+  }
+  .entry-top{display:flex; justify-content:space-between; align-items:baseline; gap:10px;}
+  .entry-time{font-size:0.74rem; color:var(--muted); font-variant-numeric:tabular-nums;}
+  .entry-situation{font-family:"Gowun Batang",serif; font-size:1.02rem; margin:2px 0 8px;}
+  .entry-grid{display:grid; grid-template-columns:auto 1fr; gap:4px 10px; font-size:0.88rem;}
+  .entry-grid dt{color:var(--muted); white-space:nowrap;}
+  .entry-grid dd{margin:0;}
+  .entry-grid dd.dd-pending{color:var(--variable-strong); font-style:italic;}
+  .entry-actions{display:flex; gap:8px; margin-top:10px;}
+  .entry-actions button{font-size:0.78rem; padding:5px 10px;}
+  .empty-note{color:var(--muted); font-size:0.88rem; padding:10px 2px;}
+  .add-more-btn{
+    border:1px dashed var(--line); background:none; border-radius:10px; padding:11px;
+    font-size:0.85rem; color:var(--variable-strong); cursor:pointer; width:100%;
+  }
+  .add-more-btn:hover{border-color:var(--variable);}
+
+  /* calendar */
+  .calendar{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:14px;
+    padding:18px 20px 16px; margin-bottom:22px; box-shadow:var(--shadow);
+  }
+  .cal-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
+  .cal-head h2{font-size:1.05rem;}
+  .cal-nav{display:flex; gap:6px;}
+  .cal-nav button{
+    width:30px; height:30px; border-radius:8px; border:1px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; font-size:1rem;
+  }
+  .cal-nav button:hover{border-color:var(--constant);}
+  .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:5px;}
+  .cal-dow{text-align:center; font-size:0.7rem; color:var(--muted); padding-bottom:6px;}
+  .cal-cell{
+    aspect-ratio:1/1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:4px; border-radius:9px; border:1px solid transparent; cursor:pointer; font-size:0.82rem;
+    color:var(--ink); background:none;
+  }
+  .cal-cell.blank{cursor:default;}
+  .cal-cell:not(.blank):hover{border-color:var(--line);}
+  .cal-cell.today{border-color:var(--muted);}
+  .cal-cell.selected{border-color:var(--ink); background:var(--paper); font-weight:700;}
+  .cal-dots{display:flex; gap:3px; height:6px;}
+  .cal-dot{width:6px; height:6px; border-radius:50%; background:transparent;}
+  .cal-dot.const-on{background:var(--constant);}
+  .cal-dot.var-on{background:var(--variable);}
+  .cal-legend{display:flex; gap:18px; margin-top:12px; font-size:0.76rem; color:var(--muted); justify-content:center;}
+  .cal-legend span{display:inline-flex; align-items:center; gap:6px;}
+  .cal-legend i{width:7px; height:7px; border-radius:50%; display:inline-block;}
+  .cal-legend i.const{background:var(--constant);}
+  .cal-legend i.var{background:var(--variable);}
+  .retro-body{
+    font-family:"Gowun Batang",serif; font-size:1rem; line-height:1.75; color:var(--ink);
+    white-space:pre-wrap;
+  }
+  .retro-body.muted{font-family:"Gowun Dodum",sans-serif; font-size:0.86rem; color:var(--muted);}
+
+  /* how-to */
+  details.howto{
+    margin-bottom:16px; background:var(--paper-raised); border:1px solid var(--line);
+    border-radius:12px; padding:12px 16px;
+  }
+  details.howto summary{
+    cursor:pointer; list-style:none; font-size:0.82rem; color:var(--muted);
+    display:flex; align-items:center; gap:6px;
+  }
+  details.howto summary::-webkit-details-marker{display:none;}
+  details.howto summary::before{content:"▸"; font-size:0.68rem;}
+  details.howto[open] summary::before{content:"▾";}
+  .howto-body{margin-top:14px; display:flex; flex-direction:column; gap:14px;}
+  .howto-item strong{
+    display:block; font-family:"Gowun Batang",serif; font-size:0.92rem; margin-bottom:4px; color:var(--ink);
+  }
+  .howto-item p{margin:0; font-size:0.82rem; color:var(--muted); line-height:1.65;}
+  .howto-icon{width:36px; height:36px; border-radius:8px; margin-top:8px; display:block;}
+  .howto-sub{display:flex; gap:8px; margin-top:8px !important; align-items:baseline;}
+  .howto-sub-title{
+    flex:none; font-family:"Gowun Dodum",sans-serif !important; font-size:0.76rem !important; font-weight:700;
+    color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:6px;
+    padding:1px 7px; margin:0 !important; display:inline-block !important;
+  }
+
+  /* quotes toggle */
+  details.quotes summary{
+    cursor:pointer; list-style:none; font-family:"Gowun Batang",serif; font-size:1.15rem;
+    margin-bottom:4px; color:var(--ink); display:flex; align-items:center; justify-content:space-between;
+  }
+  details.quotes summary::-webkit-details-marker{display:none;}
+  details.quotes summary::after{content:"펼치기 ▸"; font-family:"Gowun Dodum",sans-serif; font-size:0.74rem; color:var(--muted);}
+  details.quotes[open] summary::after{content:"접기 ▾";}
+  details.quotes[open] summary{margin-bottom:18px;}
+
+  footer.note{
+    text-align:center; color:var(--muted); font-size:0.82rem; margin-top:34px;
+    font-family:"Gowun Batang",serif;
+  }
+
+  .storage-banner{
+    font-size:0.8rem; color:var(--muted); background:var(--paper-raised); border:1px solid var(--line);
+    border-radius:9px; padding:8px 12px; margin-bottom:18px; display:none;
+  }
+  .storage-banner.show{display:block;}
+
+  .backup-bar{
+    display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; justify-content:space-between;
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:12px;
+    padding:12px 16px; margin-bottom:18px;
+  }
+  .backup-text{display:flex; flex-direction:column; gap:2px; font-size:0.8rem; color:var(--muted);}
+  .backup-text strong{color:var(--ink); font-family:"Gowun Batang",serif; font-size:0.95rem;}
+  .backup-actions{display:flex; gap:8px; flex-wrap:wrap;}
+  .backup-actions .btn{white-space:nowrap;}
+</style>
+
+<div class="wrap">
+
+  <details class="howto">
+    <summary>사용법 보기</summary>
+    <div class="howto-body">
+      <div class="howto-item">
+        <strong>앱처럼 쓰기</strong>
+        <p>아래 아이콘으로 홈 화면에 생겨요. 왼쪽 분홍은 상수, 오른쪽 청록은 변수 — 반복할수록 궤도가 넓어진다는 무한대(∞) 모양이에요.</p>
+        <img class="howto-icon" alt="상수와 변수 아이콘" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23FBF3F1'/%3E%3Ccircle cx='66' cy='90' r='34' fill='none' stroke='%23D6577E' stroke-width='20'/%3E%3Ccircle cx='114' cy='90' r='34' fill='none' stroke='%232F8A86' stroke-width='20'/%3E%3C/svg%3E">
+        <p class="howto-sub"><strong class="howto-sub-title">아이폰</strong>Safari로 이 링크를 연다 → 하단 공유 아이콘(네모 위 화살표) 탭 → 아래로 스크롤해 "홈 화면에 추가" 선택 → 우측 위 "추가" 탭.</p>
+        <p class="howto-sub"><strong class="howto-sub-title">안드로이드</strong>Chrome으로 이 링크를 연다 → 우측 위 점 세 개 메뉴 탭 → "홈 화면에 추가" 또는 "앱 설치" 선택 → "추가"/"설치" 탭.</p>
+      </div>
+      <div class="howto-item">
+        <strong>폰 · PC 연동</strong>
+        <p class="howto-sub"><strong class="howto-sub-title">1</strong>PC에서 claude.ai에 로그인한 계정을 확인해요 (우측 위 프로필 아이콘).</p>
+        <p class="howto-sub"><strong class="howto-sub-title">2</strong>폰의 브라우저(Safari/Chrome)에서도 claude.ai에 접속해 같은 이메일로 로그인해요.</p>
+        <p class="howto-sub"><strong class="howto-sub-title">3</strong>로그인된 상태에서 이 링크(또는 홈 화면 아이콘)를 열어요.</p>
+        <p class="howto-sub"><strong class="howto-sub-title">4</strong>위쪽에 "이 브라우저에만 저장돼요" 배너가 없으면 정상 연동이에요.</p>
+        <p class="howto-sub"><strong class="howto-sub-title">5</strong>실시간으로 화면이 바뀌진 않아요. 한쪽에서 적은 뒤 다른 기기에서 보려면, 그 페이지를 새로고침(또는 다시 열기)하면 최신 기록이 나타나요.</p>
+      </div>
+      <div class="howto-item">
+        <strong>백업, 꼭 해두세요</strong>
+        <p>이 페이지(아티팩트)를 삭제하면 안에 저장된 모든 기록이 함께 사라지고, 복구가 안 돼요. 그러니 <b>이 페이지 자체는 절대 삭제하지 마세요.</b> 대신 위쪽 "백업" 줄에서 한 달에 한 번 정도 "백업 파일 저장"을 눌러 JSON 파일로 내려받아두면, 혹시 무슨 일이 생겨도 그 파일을 "백업 파일 불러오기"로 다시 불러와 기록을 되살릴 수 있어요.</p>
+      </div>
+    </div>
+  </details>
+
+  <header class="top">
+    <div class="brand">
+      <h1>상수와 변수</h1>
+      <p>상수의 시간에 쌓고, 변수의 시간에 흘려보내는 하루의 기록.</p>
+    </div>
+    <div>
+      <div class="datenav">
+        <button id="prevDay" title="전날" aria-label="전날">‹</button>
+        <input id="datePicker" type="date">
+        <button id="nextDay" title="다음날" aria-label="다음날">›</button>
+        <button class="today-btn" id="gotoToday">오늘로</button>
+        <button class="today-btn" id="themeToggle">라이트/다크</button>
+      </div>
+      <div class="save-status" id="saveStatus">&nbsp;</div>
+    </div>
+  </header>
+
+  <div class="storage-banner" id="storageBanner">지금은 이 브라우저에만 저장돼요. 같은 브라우저로 다시 열면 이어서 볼 수 있어요.</div>
+
+  <section class="backup-bar">
+    <div class="backup-text">
+      <strong>백업</strong>
+      <span id="backupStatus">기록은 자동으로 저장되지만, 파일로도 따로 보관해두면 안심이에요.</span>
+    </div>
+    <div class="backup-actions">
+      <button class="btn btn-ghost btn-tiny" id="exportBtn">백업 파일 저장</button>
+      <button type="button" class="btn btn-ghost btn-tiny" id="importFileBtn">백업 파일 불러오기</button>
+      <input type="file" id="importFile" accept="application/json,.json" style="position:absolute; width:1px; height:1px; opacity:0; overflow:hidden;">
+    </div>
+  </section>
+
+  <section class="calendar">
+    <div class="cal-head">
+      <h2 id="calTitle">2026년 9월</h2>
+      <div class="cal-nav">
+        <button id="calPrev" aria-label="이전 달">‹</button>
+        <button id="calNext" aria-label="다음 달">›</button>
+      </div>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div class="cal-legend">
+      <span><i class="var"></i> 변수를 기록한 날</span>
+      <span><i class="const"></i> 상수를 기록한 날</span>
+    </div>
+  </section>
+
+  <section class="calendar retro" id="retroSection" hidden>
+    <div class="cal-head">
+      <h2>이번 달 회고</h2>
+      <button class="btn btn-var btn-tiny" id="retroBtn">회고 만들기</button>
+    </div>
+    <div id="retroBody" class="retro-body muted">이 달에 쌓인 상수·변수 기록을 바탕으로, 짧은 회고를 만들어드려요.</div>
+  </section>
+
+  <section class="formula">
+    <h2>상수와 변수 공식</h2>
+    <div class="formula-main">f(기분) = <span class="fx-var">변수(x)</span> + <span class="fx-const">상수(c)</span></div>
+    <p class="formula-example">예) 남편의 말투, 매출, 날씨 같은 변수에 &nbsp;+&nbsp; 8시 운동, 명상, 회고처럼 고정해둔 상수를 더하면, 오늘의 기분이 된다.</p>
+    <div class="formula-legend">
+      <span><i></i> 변수 — 상황마다 달라지는 값</span>
+      <span><i class="solid"></i> 상수 — 내가 고정해둔 값</span>
+    </div>
+  </section>
+
+  <details class="quotes">
+    <summary>기억해둘 문장들</summary>
+    <div class="quote-cols">
+      <div class="quote-col col-const">
+        <h3>상수</h3>
+        <div class="quote-list" id="quoteListConst"></div>
+      </div>
+      <div class="quote-col col-var">
+        <h3>변수</h3>
+        <div class="quote-list" id="quoteListVar"></div>
+      </div>
+    </div>
+  </details>
+
+  <main class="board">
+    <section class="panel constant">
+      <div class="panel-head">
+        <h2 class="accent-const">상수노트</h2>
+      </div>
+      <p class="panel-sub">오늘 고정해두고 싶은 것들. 다 채우지 않아도 괜찮아요. (입력하면 자동으로도 저장돼요)</p>
+
+      <div class="field">
+        <div class="field-headrow">
+          <label>나의 상수 (매일 반복할 것들)</label>
+          <button class="btn btn-ghost btn-tiny" id="manageRoutinesBtn">관리</button>
+        </div>
+        <div class="routine-list" id="routineChecklist"></div>
+        <div class="routine-manage" id="routineManage" style="display:none;"></div>
+      </div>
+
+      <div class="field">
+        <label for="f-memorize">오늘 외우거나 곱씹은 문장</label>
+        <textarea id="f-memorize" rows="2" placeholder="암기할 것, 마음에 새길 문장을 적어두세요"></textarea>
+      </div>
+
+      <div class="field">
+        <label>오늘의 다섯 가지 목표</label>
+        <div class="goals-grid">
+          <div class="goal-field"><label><span class="goal-dot"></span>돈</label><input type="text" id="g-money" placeholder=""></div>
+          <div class="goal-field"><label><span class="goal-dot"></span>일</label><input type="text" id="g-work" placeholder=""></div>
+          <div class="goal-field"><label><span class="goal-dot"></span>관계</label><input type="text" id="g-relation" placeholder=""></div>
+          <div class="goal-field"><label><span class="goal-dot"></span>건강</label><input type="text" id="g-health" placeholder=""></div>
+          <div class="goal-field"><label><span class="goal-dot"></span>행복</label><input type="text" id="g-happiness" placeholder=""></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-study">오늘 공부한 것</label>
+        <textarea id="f-study" rows="2" placeholder=""></textarea>
+      </div>
+
+      <div class="field">
+        <label for="f-gratitude">감사한 것</label>
+        <textarea id="f-gratitude" rows="2" placeholder=""></textarea>
+      </div>
+
+      <div class="field">
+        <label for="f-scene">내일의 키 신 (상상해보는 장면)</label>
+        <textarea id="f-scene" rows="2" placeholder=""></textarea>
+      </div>
+
+      <div class="field">
+        <label for="f-endpoint">나의 끝점 (지금 가고 있는 방향)</label>
+        <textarea id="f-endpoint" rows="2" placeholder=""></textarea>
+      </div>
+
+      <div class="panel-save-row">
+        <button class="btn btn-const" id="saveConstBtn">저장하기</button>
+      </div>
+    </section>
+
+    <section class="panel variable">
+      <div class="panel-head">
+        <h2 class="accent-var">변수노트</h2>
+      </div>
+      <p class="panel-sub">오늘 만난 예측 못한 상황들. 아는 만큼만, 부담 없이 적어보세요.</p>
+
+      <div class="add-row">
+        <button class="btn btn-var" id="addEntryBtn">+ 오늘 있었던 일 추가</button>
+      </div>
+
+      <div id="entryFormHolder"></div>
+
+      <div class="entries" id="entriesList"></div>
+
+      <div class="panel-save-row">
+        <button class="btn btn-var" id="saveVarBtn">저장하기</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="note">오늘도 조금, 나의 궤도를 넓혔다.</footer>
+</div>
+
+<script>
+(function(){
+  const QUOTES_VAR = [
+    '변수와는 두 번 싸우지 않는다 — 이미 일어난 일과 다투지 않는 태도.',
+    '호불호를 없앤다 — 좋다 싫다가 삶의 결정권을 갖지 않게 하는 것.',
+    '일단 Yes라고 답한 뒤, 할 수 있다면(I CAN) 최선을 다해본다.',
+    '귀찮아도, 배워야 할 것 같으면 배워본다(I CAN LEARN).',
+    '무엇을 원하는가가 아니라, 이 상황이 나에게 무엇을 요구하는가를 묻는다.',
+    '결과에 집착하지 않고, 최선을 다한 뒤 나머지는 내맡긴다.',
+    '가끔은 내가 믿던 상수를 변수로 바꿔야, 새로운 문이 열린다.',
+  ];
+  const QUOTES_CONST = [
+    '상수는 내가 반복해서 스스로 만들어둔 규칙이다.',
+    '내 힘으로 할 수 있는 시간과, 할 수 없는 시간을 구분할 것.',
+    '책상과 운동화에는 변수가 없다 — 오직 나와의 약속만 있다.',
+    '자력이 세질수록, 타력을 끌어당기는 힘도 세진다.',
+    '상수 관리를 오래 해온 사람만이, 변수에 흔들리지 않는다.',
+    '반복은 헬리콥터의 프로펠러 — 멈추면 다시 땅으로 내려앉는다.',
+    '잠들기 전 좋은 인풋을 넣어두면, 무의식이 밤새 답을 만든다.',
+    '인생은 방향이 아니라 궤도를 만드는 일 — 반복할수록 궤도는 넓어진다.',
+  ];
+  function fillQuoteCol(elId, list){
+    const el = document.getElementById(elId);
+    list.forEach(text=>{
+      const row = document.createElement('div');
+      row.className = 'quote-item';
+      row.textContent = text;
+      el.appendChild(row);
+    });
+  }
+  fillQuoteCol('quoteListVar', QUOTES_VAR);
+  fillQuoteCol('quoteListConst', QUOTES_CONST);
+
+  const GOAL_KEYS = ['money','work','relation','health','happiness'];
+  const CONST_FIELDS = ['memorize','study','gratitude','scene','endpoint'];
+
+  function emptyDay(date){
+    return {
+      date: date,
+      constant: {memorize:'',study:'',gratitude:'',scene:'',endpoint:'',
+        goals:{money:'',work:'',relation:'',health:'',happiness:''},
+        routineChecks:{}},
+      variables: []
+    };
+  }
+
+  const DEFAULT_ROUTINES = [
+    {id:'r_exercise', label:'아침 운동'},
+    {id:'r_study', label:'공부 / 독서'},
+    {id:'r_meditate', label:'명상'},
+  ];
+
+  function toDateStr(d){
+    const off = d.getTimezoneOffset();
+    const local = new Date(d.getTime() - off*60000);
+    return local.toISOString().slice(0,10);
+  }
+  function fmtTime(iso){
+    try{
+      const d = new Date(iso);
+      const off = d.getTimezoneOffset();
+      const local = new Date(d.getTime()-off*60000);
+      return local.toISOString().slice(11,16);
+    }catch(e){ return ''; }
+  }
+
+  // ---- storage layer: db capability with localStorage fallback ----
+  let dbApi = null;
+  let downloadsApi = null;
+  let sampleApi = null;
+  let usingFallback = false;
+  const LS_PREFIX = 'constvar:day:';
+  const LS_INDEX = 'constvar:index';
+
+  function lsGetIndex(){
+    try{ return JSON.parse(localStorage.getItem(LS_INDEX) || '[]'); }catch(e){ return []; }
+  }
+  function lsSaveIndex(arr){
+    try{ localStorage.setItem(LS_INDEX, JSON.stringify(arr)); }catch(e){}
+  }
+  function lsTouchIndex(date){
+    const idx = lsGetIndex();
+    if(idx.indexOf(date) === -1){ idx.push(date); idx.sort(); lsSaveIndex(idx); }
+  }
+
+  const Storage = {
+    async getDay(date){
+      if(dbApi){
+        const snap = await dbApi.doc('days/'+date).get();
+        if(snap.exists) return JSON.parse(JSON.stringify(snap.data()));
+        return emptyDay(date);
+      }
+      try{
+        const raw = localStorage.getItem(LS_PREFIX+date);
+        if(raw) return JSON.parse(raw);
+      }catch(e){}
+      return emptyDay(date);
+    },
+    async saveDay(date, data){
+      if(dbApi){
+        await dbApi.doc('days/'+date).set(data);
+        return;
+      }
+      try{
+        localStorage.setItem(LS_PREFIX+date, JSON.stringify(data));
+        lsTouchIndex(date);
+      }catch(e){}
+    },
+    async getMonthSummary(yearMonth){
+      const [y,m] = yearMonth.split('-').map(Number);
+      const nextYm = m === 12 ? (y+1)+'-01' : y+'-'+String(m+1).padStart(2,'0');
+      if(dbApi){
+        const snap = await dbApi.collection('days')
+          .where('date','>=', yearMonth+'-01')
+          .where('date','<', nextYm+'-01')
+          .get();
+        return snap.docs.map(d=>d.data());
+      }
+      const idx = lsGetIndex().filter(d=> d.slice(0,7) === yearMonth);
+      const out = [];
+      idx.forEach(date=>{
+        try{
+          const raw = localStorage.getItem(LS_PREFIX+date);
+          if(raw) out.push(JSON.parse(raw));
+        }catch(e){}
+      });
+      return out;
+    },
+    async getRoutines(){
+      if(dbApi){
+        const snap = await dbApi.doc('meta/routines').get();
+        if(snap.exists && Array.isArray(snap.data().items)) return snap.data().items;
+        return DEFAULT_ROUTINES.slice();
+      }
+      try{
+        const raw = localStorage.getItem('constvar:routines');
+        if(raw) return JSON.parse(raw);
+      }catch(e){}
+      return DEFAULT_ROUTINES.slice();
+    },
+    async saveRoutines(items){
+      if(dbApi){
+        await dbApi.doc('meta/routines').set({items});
+        return;
+      }
+      try{ localStorage.setItem('constvar:routines', JSON.stringify(items)); }catch(e){}
+    }
+  };
+
+  // ---- app state ----
+  let currentDate = toDateStr(new Date());
+  let dayData = emptyDay(currentDate);
+  let saveTimer = null;
+  const saveStatusEl = document.getElementById('saveStatus');
+
+  const datePicker = document.getElementById('datePicker');
+  datePicker.value = currentDate;
+
+  function setSaveStatus(text){ saveStatusEl.textContent = text; }
+
+  // ---- theme toggle (independent of OS/browser dark-mode detection) ----
+  const themeToggleBtn = document.getElementById('themeToggle');
+  function getEffectiveTheme(){
+    const explicit = document.documentElement.getAttribute('data-theme');
+    if(explicit) return explicit;
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  function applyTheme(theme){
+    document.documentElement.setAttribute('data-theme', theme);
+    try{ localStorage.setItem('constvar:theme', theme); }catch(e){}
+    themeToggleBtn.textContent = theme === 'dark' ? '라이트로 보기' : '다크로 보기';
+  }
+  (function initTheme(){
+    let saved = null;
+    try{ saved = localStorage.getItem('constvar:theme'); }catch(e){}
+    if(saved === 'light' || saved === 'dark'){
+      applyTheme(saved);
+    } else {
+      themeToggleBtn.textContent = getEffectiveTheme() === 'dark' ? '라이트로 보기' : '다크로 보기';
+    }
+  })();
+  themeToggleBtn.addEventListener('click', ()=>{
+    applyTheme(getEffectiveTheme() === 'dark' ? 'light' : 'dark');
+  });
+
+  async function saveNow(){
+    clearTimeout(saveTimer);
+    setSaveStatus('쓰는 중…');
+    await Storage.saveDay(currentDate, dayData);
+    const now = new Date();
+    const hh = String(now.getHours()).padStart(2,'0');
+    const mm = String(now.getMinutes()).padStart(2,'0');
+    setSaveStatus('저장됨 · '+hh+':'+mm);
+    if(typeof renderCalendar === 'function') renderCalendar();
+  }
+
+  function scheduleSave(){
+    setSaveStatus('쓰는 중…');
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(saveNow, 650);
+  }
+
+  function bindConstField(id, path){
+    const el = document.getElementById(id);
+    el.addEventListener('input', ()=>{
+      if(path[0] === 'goals'){ dayData.constant.goals[path[1]] = el.value; }
+      else { dayData.constant[path[0]] = el.value; }
+      scheduleSave();
+    });
+  }
+  bindConstField('f-memorize', ['memorize']);
+  bindConstField('f-study', ['study']);
+  bindConstField('f-gratitude', ['gratitude']);
+  bindConstField('f-scene', ['scene']);
+  bindConstField('f-endpoint', ['endpoint']);
+  bindConstField('g-money', ['goals','money']);
+  bindConstField('g-work', ['goals','work']);
+  bindConstField('g-relation', ['goals','relation']);
+  bindConstField('g-health', ['goals','health']);
+  bindConstField('g-happiness', ['goals','happiness']);
+  function manualSave(){
+    if(typeof flushActiveEntryForm === 'function') flushActiveEntryForm();
+    if(typeof renderEntries === 'function') renderEntries();
+    saveNow();
+  }
+  document.getElementById('saveConstBtn').addEventListener('click', manualSave);
+  document.getElementById('saveVarBtn').addEventListener('click', manualSave);
+
+  // ---- 나만의 상수 (routine checklist) ----
+  let routineItems = [];
+  const routineChecklistEl = document.getElementById('routineChecklist');
+  const routineManageEl = document.getElementById('routineManage');
+
+  function renderRoutineChecklist(){
+    routineChecklistEl.innerHTML = '';
+    if(!dayData.constant.routineChecks) dayData.constant.routineChecks = {};
+    if(routineItems.length === 0){
+      routineChecklistEl.innerHTML = '<div class="routine-empty">아직 등록한 상수가 없어요. \'관리\'에서 추가해보세요.</div>';
+      return;
+    }
+    routineItems.forEach(item=>{
+      const checked = !!dayData.constant.routineChecks[item.id];
+      const row = document.createElement('label');
+      row.className = 'routine-row' + (checked ? ' checked' : '');
+      row.innerHTML = '<input type="checkbox"><span></span>';
+      row.querySelector('input').checked = checked;
+      row.querySelector('span').textContent = item.label;
+      row.querySelector('input').addEventListener('change', (e)=>{
+        dayData.constant.routineChecks[item.id] = e.target.checked;
+        row.classList.toggle('checked', e.target.checked);
+        scheduleSave();
+      });
+      routineChecklistEl.appendChild(row);
+    });
+  }
+
+  function renderRoutineManage(){
+    routineManageEl.innerHTML = '';
+    routineItems.forEach(item=>{
+      const row = document.createElement('div');
+      row.className = 'rm-row';
+      row.innerHTML = '<span></span><button class="rm-x" title="삭제">×</button>';
+      row.querySelector('span').textContent = item.label;
+      row.querySelector('.rm-x').addEventListener('click', ()=>{
+        routineItems = routineItems.filter(r=>r.id !== item.id);
+        renderRoutineManage();
+        renderRoutineChecklist();
+        Storage.saveRoutines(routineItems);
+      });
+      routineManageEl.appendChild(row);
+    });
+    const addRow = document.createElement('div');
+    addRow.className = 'rm-add';
+    addRow.innerHTML = '<input type="text" placeholder="새 상수 이름 (예: 스트레칭)"><button class="btn btn-var btn-tiny">추가</button>';
+    const input = addRow.querySelector('input');
+    const addBtn = addRow.querySelector('button');
+    function doAdd(){
+      const label = input.value.trim();
+      if(!label) return;
+      routineItems.push({id:'r_'+Date.now()+'_'+Math.random().toString(36).slice(2,6), label});
+      input.value = '';
+      renderRoutineManage();
+      renderRoutineChecklist();
+      Storage.saveRoutines(routineItems);
+    }
+    addBtn.addEventListener('click', doAdd);
+    input.addEventListener('keydown', (e)=>{ if(e.key === 'Enter'){ e.preventDefault(); doAdd(); } });
+    routineManageEl.appendChild(addRow);
+  }
+
+  document.getElementById('manageRoutinesBtn').addEventListener('click', ()=>{
+    const show = routineManageEl.style.display === 'none';
+    routineManageEl.style.display = show ? 'block' : 'none';
+    if(show) renderRoutineManage();
+  });
+
+  async function loadRoutines(){
+    routineItems = await Storage.getRoutines();
+    renderRoutineChecklist();
+  }
+
+  function renderConstant(){
+    renderRoutineChecklist();
+    document.getElementById('f-memorize').value = dayData.constant.memorize || '';
+    document.getElementById('f-study').value = dayData.constant.study || '';
+    document.getElementById('f-gratitude').value = dayData.constant.gratitude || '';
+    document.getElementById('f-scene').value = dayData.constant.scene || '';
+    document.getElementById('f-endpoint').value = dayData.constant.endpoint || '';
+    const g = dayData.constant.goals || {};
+    document.getElementById('g-money').value = g.money || '';
+    document.getElementById('g-work').value = g.work || '';
+    document.getElementById('g-relation').value = g.relation || '';
+    document.getElementById('g-health').value = g.health || '';
+    document.getElementById('g-happiness').value = g.happiness || '';
+  }
+
+  const entriesList = document.getElementById('entriesList');
+  const formHolder = document.getElementById('entryFormHolder');
+  let activeEntryForm = null; // {entry, situationEl, emotionEl, actionEl, resultEl, insightEl}
+
+  function flushActiveEntryForm(){
+    if(!activeEntryForm) return;
+    const {entry, situationEl, emotionEl, actionEl, resultEl, insightEl, acceptanceEl} = activeEntryForm;
+    entry.situation = situationEl.value.trim();
+    entry.emotion = emotionEl.value.trim();
+    entry.action = actionEl.value.trim();
+    entry.result = resultEl.value.trim();
+    entry.insight = insightEl.value.trim();
+    entry.acceptance = acceptanceEl.value;
+    if(isEntryBlank(entry)){
+      dayData.variables = dayData.variables.filter(v=>v.id !== entry.id);
+    }
+    activeEntryForm = null;
+  }
+
+  function renderEntries(){
+    entriesList.innerHTML = '';
+    const items = (dayData.variables || []).slice().sort((a,b)=> (a.time||'').localeCompare(b.time||''));
+    if(items.length === 0){
+      entriesList.innerHTML = '<div class="empty-note">아직 기록이 없어요. 오늘 있었던 예측 못한 일을 남겨보세요.</div>';
+      return;
+    }
+    items.forEach(entry=>{
+      const card = document.createElement('div');
+      card.className = 'entry-card';
+      card.innerHTML =
+        '<div class="entry-top"><div class="entry-situation"></div><div class="entry-time"></div></div>'+
+        '<div class="dd-acceptance"></div>'+
+        '<dl class="entry-grid">'+
+        '<dt>감정</dt><dd class="dd-emotion"></dd>'+
+        '<dt>행동</dt><dd class="dd-action"></dd>'+
+        '<dt>결과</dt><dd class="dd-result"></dd>'+
+        '<dt>지나고 보니</dt><dd class="dd-insight"></dd>'+
+        '</dl>'+
+        '<div class="entry-actions">'+
+        '<button class="btn btn-ghost btn-edit">수정</button>'+
+        '<button class="btn btn-danger btn-del">삭제</button>'+
+        '</div>';
+      card.querySelector('.entry-situation').textContent = entry.situation || '(상황 미입력)';
+      card.querySelector('.entry-time').textContent = fmtTime(entry.time);
+      card.querySelector('.dd-emotion').textContent = entry.emotion || '—';
+      card.querySelector('.dd-action').textContent = entry.action || '—';
+      const resultDd = card.querySelector('.dd-result');
+      if(entry.result){
+        resultDd.textContent = entry.result;
+      } else {
+        resultDd.textContent = '아직 몰라요 · 나중에 채워도 돼요';
+        resultDd.classList.add('dd-pending');
+      }
+      card.querySelector('.dd-insight').textContent = entry.insight || '—';
+      const acceptLabels = {accepted:'받아들임', resisted:'저항함', unsure:'아직 모르겠음'};
+      const acceptEl = card.querySelector('.dd-acceptance');
+      if(entry.acceptance && acceptLabels[entry.acceptance]){
+        acceptEl.textContent = acceptLabels[entry.acceptance];
+        acceptEl.className = 'dd-acceptance tag-' + entry.acceptance;
+      } else {
+        acceptEl.remove();
+      }
+      card.querySelector('.btn-del').addEventListener('click', ()=>{
+        dayData.variables = dayData.variables.filter(v=>v.id !== entry.id);
+        renderEntries();
+        scheduleSave();
+      });
+      card.querySelector('.btn-edit').addEventListener('click', ()=>{
+        openEntryForm(entry);
+      });
+      entriesList.appendChild(card);
+    });
+    const addMore = document.createElement('button');
+    addMore.className = 'btn btn-ghost add-more-btn';
+    addMore.textContent = '+ 다른 일도 있었다면 추가';
+    addMore.addEventListener('click', addBlankEntry);
+    entriesList.appendChild(addMore);
+  }
+
+  function isEntryBlank(e){
+    return !e.situation && !e.emotion && !e.action && !e.result && !e.insight && !e.acceptance;
+  }
+
+  function addBlankEntry(){
+    flushActiveEntryForm();
+    dayData.variables = dayData.variables || [];
+    const entry = {
+      id: 'v_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),
+      situation:'', emotion:'', action:'', result:'', insight:'', acceptance:'',
+      time: new Date().toISOString()
+    };
+    dayData.variables.push(entry);
+    renderEntries();
+    scheduleSave();
+    openEntryForm(entry);
+  }
+
+  function openEntryForm(entry){
+    if(activeEntryForm && activeEntryForm.entry.id !== entry.id) flushActiveEntryForm();
+    formHolder.innerHTML = '';
+    const form = document.createElement('div');
+    form.className = 'entry-form';
+    form.innerHTML =
+      '<p class="entry-form-hint">다 안 채워도 괜찮아요. 아는 것만, 아는 만큼만.</p>'+
+      '<div class="field"><label>어떤 상황이었나요</label><input type="text" class="fe-situation" placeholder="선택"></div>'+
+      '<div class="field"><label>그때의 감정</label><input type="text" class="fe-emotion" placeholder="선택"></div>'+
+      '<div class="field"><label>그래서 내가 한 행동</label><input type="text" class="fe-action" placeholder="선택"></div>'+
+      '<div class="field"><label>그 뒤의 결과</label><input type="text" class="fe-result" placeholder="아직 모르면 비워두고, 나중에 다시 열어 채워도 돼요"></div>'+
+      '<div class="field"><label>지나고 보니 (깨달은 것)</label><input type="text" class="fe-insight" placeholder="선택 · 나중에 다시 읽을 때 적어도 좋아요"></div>'+
+      '<div class="field"><label>이번엔?</label>'+
+      '<select class="fe-acceptance">'+
+      '<option value="">선택 안 함</option>'+
+      '<option value="accepted">받아들임</option>'+
+      '<option value="resisted">저항함</option>'+
+      '<option value="unsure">아직 모르겠음</option>'+
+      '</select></div>'+
+      '<div class="row-actions">'+
+      '<button class="btn btn-ghost fe-cancel">취소</button>'+
+      '<button class="btn btn-var fe-save">기록하기</button>'+
+      '</div>';
+    const situationEl = form.querySelector('.fe-situation');
+    const emotionEl = form.querySelector('.fe-emotion');
+    const actionEl = form.querySelector('.fe-action');
+    const resultEl = form.querySelector('.fe-result');
+    const insightEl = form.querySelector('.fe-insight');
+    const acceptanceEl = form.querySelector('.fe-acceptance');
+    situationEl.value = entry.situation || '';
+    emotionEl.value = entry.emotion || '';
+    actionEl.value = entry.action || '';
+    resultEl.value = entry.result || '';
+    insightEl.value = entry.insight || '';
+    acceptanceEl.value = entry.acceptance || '';
+    activeEntryForm = {entry, situationEl, emotionEl, actionEl, resultEl, insightEl, acceptanceEl};
+
+    form.querySelector('.fe-cancel').addEventListener('click', ()=>{
+      activeEntryForm = null;
+      formHolder.innerHTML = '';
+      if(isEntryBlank(entry)){
+        dayData.variables = dayData.variables.filter(v=>v.id !== entry.id);
+        renderEntries();
+        scheduleSave();
+      }
+    });
+    form.querySelector('.fe-save').addEventListener('click', ()=>{
+      activeEntryForm = null;
+      entry.situation = situationEl.value.trim();
+      entry.emotion = emotionEl.value.trim();
+      entry.action = actionEl.value.trim();
+      entry.result = resultEl.value.trim();
+      entry.insight = insightEl.value.trim();
+      entry.acceptance = acceptanceEl.value;
+      if(isEntryBlank(entry)){
+        dayData.variables = dayData.variables.filter(v=>v.id !== entry.id);
+      }
+      formHolder.innerHTML = '';
+      renderEntries();
+      scheduleSave();
+    });
+    formHolder.appendChild(form);
+  }
+  document.getElementById('addEntryBtn').addEventListener('click', addBlankEntry);
+
+  function renderAll(){
+    renderConstant();
+    renderEntries();
+    formHolder.innerHTML = '';
+  }
+
+  async function loadDate(date){
+    flushActiveEntryForm();
+    clearTimeout(saveTimer);
+    if(dayData && currentDate){
+      try{ await Storage.saveDay(currentDate, dayData); }catch(e){}
+    }
+    currentDate = date;
+    datePicker.value = date;
+    dayData = await Storage.getDay(date);
+    if(!dayData.constant) dayData.constant = emptyDay(date).constant;
+    if(!dayData.constant.routineChecks) dayData.constant.routineChecks = {};
+    if(!dayData.constant.goals) dayData.constant.goals = {money:'',work:'',relation:'',health:'',happiness:''};
+    if(!dayData.variables) dayData.variables = [];
+    renderAll();
+    setSaveStatus(' ');
+    setCalFromDate(date);
+    if(typeof renderCalendar === 'function') renderCalendar();
+  }
+
+  document.getElementById('prevDay').addEventListener('click', ()=>{
+    const d = new Date(currentDate+'T00:00:00'); d.setDate(d.getDate()-1);
+    loadDate(toDateStr(d));
+  });
+  document.getElementById('nextDay').addEventListener('click', ()=>{
+    const d = new Date(currentDate+'T00:00:00'); d.setDate(d.getDate()+1);
+    loadDate(toDateStr(d));
+  });
+  document.getElementById('gotoToday').addEventListener('click', ()=>{
+    loadDate(toDateStr(new Date()));
+  });
+  datePicker.addEventListener('change', ()=>{
+    if(datePicker.value) loadDate(datePicker.value);
+  });
+
+  // ---- calendar ----
+  function dayHasConstant(d){
+    const c = d.constant || {};
+    if(c.memorize || c.study || c.gratitude || c.scene || c.endpoint) return true;
+    const g = c.goals || {};
+    if(g.money || g.work || g.relation || g.health || g.happiness) return true;
+    const rc = c.routineChecks || {};
+    return Object.keys(rc).some(k=>rc[k]);
+  }
+  function dayHasVariable(d){ return (d.variables || []).length > 0; }
+
+  const DOW = ['일','월','화','수','목','금','토'];
+  let calYear, calMonthIdx; // 0-based month
+  function setCalFromDate(dateStr){
+    const [y,m] = dateStr.split('-').map(Number);
+    calYear = y; calMonthIdx = m - 1;
+  }
+  setCalFromDate(currentDate);
+
+  const calTitle = document.getElementById('calTitle');
+  const calGrid = document.getElementById('calGrid');
+
+  async function renderCalendar(){
+    const ymStr = calYear + '-' + String(calMonthIdx+1).padStart(2,'0');
+    calTitle.textContent = calYear + '년 ' + (calMonthIdx+1) + '월';
+    const summary = await Storage.getMonthSummary(ymStr);
+    const byDate = {};
+    summary.forEach(d=>{ byDate[d.date] = d; });
+
+    calGrid.innerHTML = '';
+    DOW.forEach(d=>{
+      const el = document.createElement('div');
+      el.className = 'cal-dow';
+      el.textContent = d;
+      calGrid.appendChild(el);
+    });
+    const firstDow = new Date(calYear, calMonthIdx, 1).getDay();
+    const daysInMonth = new Date(calYear, calMonthIdx+1, 0).getDate();
+    const todayStr = toDateStr(new Date());
+
+    for(let i=0;i<firstDow;i++){
+      const blank = document.createElement('div');
+      blank.className = 'cal-cell blank';
+      calGrid.appendChild(blank);
+    }
+    for(let day=1; day<=daysInMonth; day++){
+      const dateStr = ymStr + '-' + String(day).padStart(2,'0');
+      const cell = document.createElement('div');
+      cell.className = 'cal-cell';
+      if(dateStr === todayStr) cell.classList.add('today');
+      if(dateStr === currentDate) cell.classList.add('selected');
+      const rec = byDate[dateStr];
+      const hasConst = rec ? dayHasConstant(rec) : false;
+      const hasVar = rec ? dayHasVariable(rec) : false;
+      cell.innerHTML =
+        '<span>'+day+'</span>'+
+        '<span class="cal-dots">'+
+        '<span class="cal-dot '+(hasVar?'var-on':'')+'"></span>'+
+        '<span class="cal-dot '+(hasConst?'const-on':'')+'"></span>'+
+        '</span>';
+      cell.addEventListener('click', ()=> loadDate(dateStr));
+      calGrid.appendChild(cell);
+    }
+  }
+  document.getElementById('calPrev').addEventListener('click', ()=>{
+    calMonthIdx--; if(calMonthIdx < 0){ calMonthIdx = 11; calYear--; }
+    renderCalendar();
+  });
+  document.getElementById('calNext').addEventListener('click', ()=>{
+    calMonthIdx++; if(calMonthIdx > 11){ calMonthIdx = 0; calYear++; }
+    renderCalendar();
+  });
+
+  // ---- monthly retrospective ----
+  const retroSection = document.getElementById('retroSection');
+  const retroBtn = document.getElementById('retroBtn');
+  const retroBody = document.getElementById('retroBody');
+  const ACCEPT_LABELS = {accepted:'받아들임', resisted:'저항함', unsure:'아직 모르겠음'};
+
+  async function buildRetroPrompt(){
+    const ym = toDateStr(new Date()).slice(0,7);
+    const monthLabel = ym.slice(0,4)+'년 '+parseInt(ym.slice(5,7))+'월';
+    const summary = await Storage.getMonthSummary(ym);
+    const routineCounts = {};
+    routineItems.forEach(item=>{ routineCounts[item.id] = 0; });
+    let daysWithData = 0;
+    const varLines = [];
+    summary.forEach(d=>{
+      daysWithData++;
+      const rc = (d.constant && d.constant.routineChecks) || {};
+      routineItems.forEach(item=>{ if(rc[item.id]) routineCounts[item.id]++; });
+      (d.variables || []).forEach(v=>{
+        if(isEntryBlank(v)) return;
+        const parts = [d.date];
+        if(v.situation) parts.push('상황:'+v.situation);
+        if(v.emotion) parts.push('감정:'+v.emotion);
+        if(v.result) parts.push('결과:'+v.result);
+        if(v.acceptance && ACCEPT_LABELS[v.acceptance]) parts.push('반응:'+ACCEPT_LABELS[v.acceptance]);
+        varLines.push(parts.join(' / '));
+      });
+    });
+    const routineText = routineItems.length
+      ? routineItems.map(item=>`- ${item.label}: ${daysWithData ? routineCounts[item.id] : 0}일 / 기록한 ${daysWithData}일 중`).join('\n')
+      : '(등록된 상수 항목 없음)';
+    const cappedVar = varLines.slice(0, 50);
+    const varText = cappedVar.length ? cappedVar.join('\n') : '(이 달엔 변수 기록이 없음)';
+    const moreNote = varLines.length > cappedVar.length ? `\n(이 외 ${varLines.length - cappedVar.length}건 더 있음)` : '';
+
+    return (
+`너는 "상수와 변수"라는 개인 기록장 앱 안에서, 사용자의 ${monthLabel} 기록을 바탕으로 짧은 회고를 써주는 역할이야.
+"상수"는 매일 반복하기로 정한 루틴, "변수"는 그날 만난 예측 못한 상황을 뜻해. 변수에는 그 상황을 받아들였는지(받아들임), 저항했는지(저항함), 아직 모르겠는지 표시가 되어있을 수 있어.
+
+[이 달의 상수 실천 현황]
+${routineText}
+
+[이 달의 변수 기록 목록]
+${varText}${moreNote}
+
+위 데이터를 바탕으로, 담백하고 다정한 존댓말로 300자 내외의 회고를 써줘. 다음을 담아줘:
+1. 어떤 상수를 잘 지켰고, 어떤 상수는 흔들렸는지
+2. 변수 중 받아들인 것과 저항한 것의 비율이나 패턴 (저항한 것도 솔직한 기록으로서 의미 있다는 톤으로, 절대 다그치지 말 것)
+3. 다음 달에 시도해볼 만한 짧은 제안 한 가지
+과장하지 말고, 딱 있는 데이터에 근거해서 써줘. 데이터가 거의 없으면 "이번 달은 기록이 적어서 다음 달에 더 지켜볼게요" 정도로 짧게 답해도 돼.`
+    );
+  }
+
+  async function generateRetro(){
+    if(!sampleApi) return;
+    retroBtn.disabled = true;
+    retroBtn.textContent = '만드는 중…';
+    retroBody.classList.add('muted');
+    retroBody.textContent = '생각 중…';
+    try{
+      const prompt = await buildRetroPrompt();
+      const {text} = await sampleApi(prompt, {
+        modelTier: 'default',
+        cache: false,
+        onText: ({text})=>{
+          retroBody.classList.remove('muted');
+          retroBody.textContent = text;
+        }
+      });
+      retroBody.classList.remove('muted');
+      retroBody.textContent = text;
+      retroBtn.textContent = '다시 만들기';
+    }catch(e){
+      const hideCodes = ['not_granted','sampling_disabled','not_declared','capability_disabled','capability_removed'];
+      if(hideCodes.includes(e && e.code)){
+        retroSection.hidden = true;
+      } else {
+        retroBody.classList.add('muted');
+        retroBody.textContent = '회고를 만들지 못했어요. 잠시 후 다시 시도해주세요.';
+      }
+      retroBtn.textContent = '회고 만들기';
+    }
+    retroBtn.disabled = false;
+  }
+  retroBtn.addEventListener('click', generateRetro);
+
+  // ---- backup / restore ----
+  const backupStatusEl = document.getElementById('backupStatus');
+  function setBackupStatus(text){ backupStatusEl.textContent = text; }
+
+  async function exportBackup(){
+    setBackupStatus('백업 파일을 만드는 중…');
+    let daysArr = [];
+    if(dbApi){
+      const snap = await dbApi.collection('days').get();
+      daysArr = snap.docs.map(d=>d.data());
+    } else {
+      const idx = lsGetIndex();
+      idx.forEach(date=>{
+        try{
+          const raw = localStorage.getItem(LS_PREFIX+date);
+          if(raw) daysArr.push(JSON.parse(raw));
+        }catch(e){}
+      });
+    }
+    const routinesArr = await Storage.getRoutines();
+    const payload = {
+      app: '상수와 변수',
+      exportedAt: new Date().toISOString(),
+      routines: routinesArr,
+      days: daysArr
+    };
+    const filename = '상수와변수_백업_' + toDateStr(new Date()) + '.json';
+    if(!downloadsApi){
+      setBackupStatus('이 화면에서는 파일 저장을 지원하지 않아요.');
+      return;
+    }
+    try{
+      await downloadsApi.save({filename, data: JSON.stringify(payload, null, 2)});
+      setBackupStatus('저장했어요 · '+filename);
+    }catch(e){
+      if(e && e.code === 'declined'){ setBackupStatus('저장을 취소했어요.'); }
+      else { setBackupStatus('저장에 실패했어요. 다시 시도해주세요.'); }
+    }
+  }
+
+  async function importBackupFile(file){
+    setBackupStatus('불러오는 중…');
+    let payload;
+    try{
+      payload = JSON.parse(await file.text());
+    }catch(e){
+      setBackupStatus('올바른 백업 파일이 아니에요.');
+      return;
+    }
+    const days = Array.isArray(payload.days) ? payload.days : [];
+    const routines = Array.isArray(payload.routines) ? payload.routines : null;
+    let okCount = 0, failCount = 0;
+    for(const d of days){
+      if(!d || !d.date) continue;
+      try{
+        await Storage.saveDay(d.date, d);
+        okCount++;
+      }catch(e){
+        failCount++;
+      }
+    }
+    if(routines){
+      try{ await Storage.saveRoutines(routines); }catch(e){}
+    }
+    setBackupStatus(
+      okCount + '일치 기록을 불러왔어요.' + (failCount ? ' ('+failCount+'건 실패)' : '')
+    );
+    try{
+      await loadRoutines();
+      await loadDate(currentDate);
+      await renderCalendar();
+    }catch(e){
+      setBackupStatus('불러왔지만 화면 갱신에 문제가 있었어요. 새로고침해보세요.');
+    }
+  }
+
+  document.getElementById('exportBtn').addEventListener('click', exportBackup);
+  document.getElementById('importFileBtn').addEventListener('click', ()=>{
+    document.getElementById('importFile').click();
+  });
+  document.getElementById('importFile').addEventListener('change', (e)=>{
+    const file = e.target.files && e.target.files[0];
+    if(file) importBackupFile(file);
+    e.target.value = '';
+  });
+
+  // ---- boot ----
+  (async function boot(){
+    try{
+      dbApi = window.claude ? await window.claude.use('db') : null;
+    }catch(e){ dbApi = null; }
+    try{
+      downloadsApi = window.claude ? await window.claude.use('downloads') : null;
+    }catch(e){ downloadsApi = null; }
+    try{
+      sampleApi = window.claude ? await window.claude.use('sample') : null;
+    }catch(e){ sampleApi = null; }
+    retroSection.hidden = !sampleApi;
+    usingFallback = !dbApi;
+    document.getElementById('storageBanner').classList.toggle('show', usingFallback);
+    await loadRoutines();
+    await loadDate(currentDate);
+    await renderCalendar();
+  })();
+})();
+</script>
