@@ -1216,7 +1216,20 @@ ${varText}${moreNote}
     };
     const filename = '상수와변수_백업_' + toDateStr(new Date()) + '.json';
     if(!downloadsApi){
-      setBackupStatus('이 화면에서는 파일 저장을 지원하지 않아요.');
+      try{
+        const blob = new Blob([JSON.stringify(payload, null, 2)], {type:'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        setBackupStatus('저장했어요 · '+filename);
+      }catch(e){
+        setBackupStatus('이 화면에서는 파일 저장을 지원하지 않아요.');
+      }
       return;
     }
     try{
