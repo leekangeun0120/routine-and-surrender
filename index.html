@@ -1158,13 +1158,21 @@
     // 그냥 구경만 하고 지나간 날에도 빈 기록이 저장되므로, 실제 내용이 있는 날만 센다.
     const daysWithData = summary.filter(d=> dayHasConstant(d) || dayHasVariable(d)).length;
     const varRows = [];
+    const constNoteRows = [];
+    const GOAL_LABELS_PDF = {money:'돈', work:'일', relation:'관계', health:'건강', happiness:'행복'};
     summary.forEach(d=>{
-      const rc = (d.constant && d.constant.routineChecks) || {};
+      const c = d.constant || {};
+      const rc = c.routineChecks || {};
       routineItems.forEach(item=>{ if(rc[item.id]) routineCounts[item.id]++; });
       (d.variables || []).forEach(v=>{
         if(isEntryBlank(v)) return;
         varRows.push(Object.assign({date:d.date}, v));
       });
+      const g = c.goals || {};
+      const hasGoals = Object.keys(GOAL_LABELS_PDF).some(k=> g[k]);
+      if(c.memorize || c.study || c.gratitude || c.scene || c.endpoint || hasGoals){
+        constNoteRows.push({date:d.date, memorize:c.memorize, study:c.study, gratitude:c.gratitude, scene:c.scene, endpoint:c.endpoint, goals:g});
+      }
     });
     const routineRowsHtml = routineItems.length
       ? routineItems.map(item=>
@@ -1188,6 +1196,26 @@
           );
         }).join('')
       : '<p>이 달엔 변수 기록이 없어요.</p>';
+    const constNoteRowsHtml = constNoteRows.length
+      ? constNoteRows.map(c=>{
+          const rows = [];
+          if(c.memorize) rows.push('<div><b>외우거나 곱씹은 문장</b> '+escapeHtml(c.memorize)+'</div>');
+          if(c.study) rows.push('<div><b>공부한 것</b> '+escapeHtml(c.study)+'</div>');
+          if(c.gratitude) rows.push('<div><b>감사한 것</b> '+escapeHtml(c.gratitude)+'</div>');
+          if(c.scene) rows.push('<div><b>Key Scene</b> '+escapeHtml(c.scene)+'</div>');
+          if(c.endpoint) rows.push('<div><b>나의 끝점</b> '+escapeHtml(c.endpoint)+'</div>');
+          const goalParts = Object.keys(GOAL_LABELS_PDF)
+            .filter(k=> c.goals && c.goals[k])
+            .map(k=> GOAL_LABELS_PDF[k]+': '+escapeHtml(c.goals[k]));
+          if(goalParts.length) rows.push('<div><b>오늘의 목표</b> '+goalParts.join(' · ')+'</div>');
+          return (
+            '<div class="pdf-entry">'+
+            '<div class="pdf-entry-date">'+escapeHtml(c.date)+'</div>'+
+            '<div class="pdf-entry-grid">'+rows.join('')+'</div>'+
+            '</div>'
+          );
+        }).join('')
+      : '<p>이 달엔 상수노트에 적어둔 내용이 없어요.</p>';
 
     const html =
       '<!doctype html><html><head><meta charset="utf-8"><title>'+escapeHtml(monthLabel)+' 기록</title>'+
@@ -1206,6 +1234,8 @@
       '<h1>'+escapeHtml(monthLabel)+' 상수와 변수 기록</h1>'+
       '<h2>상수 실천 현황 (기록한 '+daysWithData+'일 중)</h2>'+
       '<table>'+routineRowsHtml+'</table>'+
+      '<h2>상수노트 기록 ('+constNoteRows.length+'일)</h2>'+
+      constNoteRowsHtml+
       '<h2>변수 기록 ('+varRows.length+'건)</h2>'+
       varRowsHtml+
       '</body></html>';
